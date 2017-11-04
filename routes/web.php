@@ -11,10 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
+Route::get('/', 'HomeController@index');
+Route::get('/exam', function () {
+    return view('exam/exam');
+});
+
+
+Route::get('/studentlogin', function () {
+    return view('auth/studentlogin');
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index');
