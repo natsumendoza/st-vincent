@@ -7,41 +7,34 @@
 
             <!-- Area Chart Example-->
 
-            <div class="row"  style="height: 500px;">
+            <div class="row" style="height: 500px;">
 
                 <div class="col-lg-12">
                     <!-- Example Bar Chart Card-->
                     <div class="card mb-3" style="height: 100%;">
 
                         <div class="card-body">
-                            <div class="row"  style="margin-top: 11%">
+
+                            <div class="row" style="margin-top: 7%;">
                                 <div class="col-md-12 text-center my-auto">
-                                    <h1>Welcome to</h1>
-                                </div>
-                                {{--<div class="col-sm-4 text-center my-auto">--}}
-                                {{--<div class="h4 mb-0 text-primary">$34,693</div>--}}
-                                {{--<div class="small text-muted">YTD Revenue</div>--}}
-                                {{--<hr>--}}
-                                {{--<div class="h4 mb-0 text-warning">$18,474</div>--}}
-                                {{--<div class="small text-muted">YTD Expenses</div>--}}
-                                {{--<hr>--}}
-                                {{--<div class="h4 mb-0 text-success">$16,219</div>--}}
-                                {{--<div class="small text-muted">YTD Margin</div>--}}
-                                {{--</div>--}}
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12 text-center my-auto">
-                                    <h1>Personality</h1>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12 text-center my-auto">
-                                    <h1>Type Indicator</h1>
+                                    <h1>RESULT:</h1>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-12 text-center my-auto text-primary">
-                                    <h1><a href="{{url('/exam')}}">OPEN TEST</a></h1>
+                                    <h1>{{$combinationFetched}}</h1>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 text-center my-auto text-primary">
+                                    <h3>{{$combinationData['interpretation']}}</h3>
+                                    <ul style="list-style: none;">
+                                        <li>1. {{$combinationData['career_1']}}</li>
+                                        <li>2. {{$combinationData['career_2']}}</li>
+                                        <li>3. {{$combinationData['career_3']}}</li>
+                                        <li>4. {{$combinationData['career_4']}}</li>
+                                        <li>5. {{$combinationData['career_5']}}</li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>

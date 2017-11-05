@@ -6,6 +6,7 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use App\ExamLimit;
 
 class RegisterController extends Controller
 {
@@ -62,10 +63,17 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $createdUser = User::create([
             'lrn' => $data['lrn'],
             'name' => $data['name'],
             'password' => bcrypt($data['password']),
         ]);
+
+        $examLimit = array();
+        $examLimit['user_id'] = $createdUser->id;
+        $examLimit['exam_count'] = 0;
+        ExamLimit::create($examLimit);
+
+        return $createdUser;
     }
 }
