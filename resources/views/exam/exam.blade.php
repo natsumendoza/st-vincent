@@ -59,7 +59,7 @@
                                                                                 <td align="left" width="300px">
                                                                                     <div class="form-check form-check-inline" >
                                                                                         <label class="form-check-label">
-                                                                                            <input type="radio" class="form-check-input" name="energy{{$countE++}}" id="optionsRadios1" value="{{$letterCode1}}">
+                                                                                            <input type="radio" class="form-check-input" name="energy{{$countE}}" id="optionsRadios1" value="{{$letterCode1}}">
                                                                                             {{$question1}}
                                                                                         </label>
                                                                                     </div>
@@ -73,6 +73,9 @@
                                                                                     </div>
                                                                                 </td>
                                                                             </tr>
+                                                                            @php
+                                                                                $countE++
+                                                                            @endphp
                                                                         @endforeach
 
                                                                     </fieldset>
@@ -111,7 +114,7 @@
                                                                                 <td align="left" width="300px">
                                                                                     <div class="form-check form-check-inline" >
                                                                                         <label class="form-check-label">
-                                                                                            <input type="radio" class="form-check-input" name="information{{$countI++}}" id="optionsRadios1" value="{{$letterCode1}}">
+                                                                                            <input type="radio" class="form-check-input" name="information{{$countI}}" id="optionsRadios1" value="{{$letterCode1}}">
                                                                                             {{$question1}}
                                                                                         </label>
                                                                                     </div>
@@ -125,6 +128,9 @@
                                                                                     </div>
                                                                                 </td>
                                                                             </tr>
+                                                                            @php
+                                                                                $countI++
+                                                                            @endphp
                                                                         @endforeach
 
 
@@ -167,7 +173,7 @@
                                                                                 <td align="left" width="300px">
                                                                                     <div class="form-check form-check-inline" >
                                                                                         <label class="form-check-label">
-                                                                                            <input type="radio" class="form-check-input" name="decisionmaking{{$countD++}}" id="optionsRadios1" value="{{$letterCode1}}">
+                                                                                            <input type="radio" class="form-check-input" name="decisionmaking{{$countD}}" id="optionsRadios1" value="{{$letterCode1}}">
                                                                                             {{$question1}}
                                                                                         </label>
                                                                                     </div>
@@ -181,6 +187,9 @@
                                                                                     </div>
                                                                                 </td>
                                                                             </tr>
+                                                                            @php
+                                                                                $countD++
+                                                                            @endphp
                                                                         @endforeach
 
 
@@ -221,7 +230,7 @@
                                                                                 <td align="left" width="300px">
                                                                                     <div class="form-check form-check-inline" >
                                                                                         <label class="form-check-label">
-                                                                                            <input type="radio" class="form-check-input" name="learningstyle{{$countL++}}" id="optionsRadios1" value="{{$letterCode1}}">
+                                                                                            <input type="radio" class="form-check-input" name="learningstyle{{$countL}}" id="optionsRadios1" value="{{$letterCode1}}">
                                                                                             {{$question1}}
                                                                                         </label>
                                                                                     </div>
@@ -235,6 +244,9 @@
                                                                                     </div>
                                                                                 </td>
                                                                             </tr>
+                                                                            @php
+                                                                                $countL++;
+                                                                            @endphp
                                                                         @endforeach
 
 
