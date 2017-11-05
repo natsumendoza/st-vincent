@@ -73,7 +73,7 @@
 <script type="text/javascript" src="{{ env('APP_ENV') == 'local' ? asset('js/sb-admin.min.js') : secure_asset('js/sb-admin.min.js') }}"></script>
 <!-- Custom scripts for this page-->
 <script type="text/javascript" src="{{ env('APP_ENV') == 'local' ? asset('js/sb-admin-datatables.min.js') : secure_asset('js/sb-admin-datatables.min.js') }}"></script>
-<script type="text/javascript" src="{{ env('APP_ENV') == 'local' ? asset('js/sb-admin-charts.min.js') : secure_asset('js/sb-admin-charts.min.js') }}"></script>
+<script type="text/javascript" src="{{ env('APP_ENV') == 'local' ? asset('js/sb-admin-charts.js') : secure_asset('js/sb-admin-charts.js') }}"></script>
 <script type="text/javascript" src="{{ env('APP_ENV') == 'local' ? asset('js/stvincent.js') : secure_asset('js/stvincent.js') }}"></script>
 
 </body>

@@ -127,7 +127,18 @@ class ResultController extends Controller
         $result['combination_id'] = $combinationData['id'];
         Result::create($result);
 
-        $data = array('combinationData' => $combinationData, 'combinationFetched' => $combinationFetched);
+        $data = array(
+            'combinationData' => $combinationData,
+            'combinationFetched' => $combinationFetched,
+            'J' => $this->getPercentage($questionsLearningStyleCount, $countJ),
+            'P' => $this->getPercentage($questionsLearningStyleCount, $countP),
+            'F' => $this->getPercentage($questionsDecisionMakingCount, $countF),
+            'T' => $this->getPercentage($questionsDecisionMakingCount, $countT),
+            'N' => $this->getPercentage($questionsInformationCount, $countN),
+            'S' => $this->getPercentage($questionsInformationCount, $countS),
+            'E' => $this->getPercentage($questionsEnergyCount, $countE),
+            'I' => $this->getPercentage($questionsEnergyCount, $countI)
+        );
         $this->updateExamLimit(Auth::user()->id);
 
         return view('exam/studentresult')->with($data);

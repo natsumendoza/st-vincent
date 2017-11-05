@@ -6,20 +6,39 @@
             <!-- Breadcrumbs-->
 
             <!-- Area Chart Example-->
+            <div class="row" style="">
+                <div class="col-md-12 text-center my-auto">
+                    <h1>RESULT:</h1>
+                </div>
+            </div>
 
-            <div class="row" style="height: 500px;">
+            <div class="row" style="">
 
                 <div class="col-lg-12">
                     <!-- Example Bar Chart Card-->
                     <div class="card mb-3" style="height: 100%;">
 
                         <div class="card-body">
-
-                            <div class="row" style="margin-top: 7%;">
-                                <div class="col-md-12 text-center my-auto">
-                                    <h1>RESULT:</h1>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <!-- Example Bar Chart Card-->
+                                    <div class="card mb-3">
+                                        <div class="card-body">
+                                            <input type="hidden" id="J" value="{{$J}}" />
+                                            <input type="hidden" id="P" value="{{$P}}" />
+                                            <input type="hidden" id="F" value="{{$F}}" />
+                                            <input type="hidden" id="T" value="{{$T}}" />
+                                            <input type="hidden" id="N" value="{{$N}}" />
+                                            <input type="hidden" id="S" value="{{$S}}" />
+                                            <input type="hidden" id="E" value="{{$E}}" />
+                                            <input type="hidden" id="I" value="{{$I}}" />
+                                            <canvas id="myBarChart" width="100" height="50"></canvas>
+                                        </div>
+                                    </div>
                                 </div>
+
                             </div>
+
                             <div class="row">
                                 <div class="col-md-12 text-center my-auto text-primary">
                                     <h1>{{$combinationFetched}}</h1>
