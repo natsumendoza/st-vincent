@@ -9,10 +9,10 @@
 
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="{{ route('register') }}">
-                        {{ csrf_field() }}
+                                {{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('lrn') ? ' has-error' : '' }}">
-                            <label for="lrn" class="col-md-4 control-label">LRN</label>
+                                <div class="form-group{{ $errors->has('lrn') ? ' has-error' : '' }}">
+                                    <label for="lrn" class="col-md-4 control-label">LRN</label>
 
                             <div class="col-md-6">
                                 <input id="lrn" type="text" class="form-control" name="lrn" value="{{ old('lrn') }}" required autofocus>

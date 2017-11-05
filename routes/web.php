@@ -56,6 +56,7 @@ Route::resource('information', 'InformationController');
 Route::resource('decisionmaking', 'DecisionMakingController');
 Route::resource('learningstyle', 'LearningStyleController');
 Route::resource('result', 'ResultController');
+Route::resource('student', 'StudentController');
 
 
 Route::get('/studentlogin', function () {

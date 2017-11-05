@@ -17,12 +17,13 @@
     <link type="text/css" rel="stylesheet" href="{{ env('APP_ENV') == 'local' ? asset('vendor/datatables/dataTables.bootstrap4.css') : secure_asset('vendor/datatables/dataTables.bootstrap4.css') }}" />
     <!-- Custom styles for this template-->
     <link type="text/css" rel="stylesheet" href="{{ env('APP_ENV') == 'local' ? asset('css/sb-admin.css') : secure_asset('css/sb-admin.css') }}" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="{{url('/')}}">St. Vincent School Foundation Inc</a>
+    <a class="navbar-brand" href="{{url('/home')}}">St. Vincent School Foundation Inc</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -35,7 +36,7 @@
                 </a>
             </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="{{url('student/create')}}">
                     <i class="fa fa-fw fa-area-chart"></i>
                     <span class="nav-link-text">Add New Student</span>
                 </a>
@@ -116,7 +117,8 @@
 <!-- Custom scripts for this page-->
 <script type="text/javascript" src="{{ env('APP_ENV') == 'local' ? asset('js/sb-admin-datatables.min.js') : secure_asset('js/sb-admin-datatables.min.js') }}"></script>
 <script type="text/javascript" src="{{ env('APP_ENV') == 'local' ? asset('js/sb-admin-charts.min.js') : secure_asset('js/sb-admin-charts.min.js') }}"></script>
-
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript" src="{{ env('APP_ENV') == 'local' ? asset('js/stvincent.js') : secure_asset('js/stvincent.js') }}"></script>
 </body>
 
 </html>
