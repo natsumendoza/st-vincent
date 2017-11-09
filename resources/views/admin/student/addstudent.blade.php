@@ -132,6 +132,34 @@
                                 </div>
                             </div>
 
+                        <div class="form-group{{ $errors->has('grade') ? ' has-error' : '' }}">
+                            <label for="contactNumber" class="col-md-4 control-label">Grade</label>
+
+                            <div class="col-md-6">
+                                <input id="grade" type="text" class="form-control" name="grade" value="{{ old('grade') }}" required autofocus>
+
+                                @if ($errors->has('grade'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('grade') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('section') ? ' has-error' : '' }}">
+                            <label for="contactNumber" class="col-md-4 control-label">Section</label>
+
+                            <div class="col-md-6">
+                                <input id="section" type="text" class="form-control" name="section" value="{{ old('section') }}" required autofocus>
+
+                                @if ($errors->has('section'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('section') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                     </div>
                         <hr>
 

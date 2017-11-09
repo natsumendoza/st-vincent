@@ -8,6 +8,7 @@ use App\Combination;
 use App\Result;
 use Auth;
 use App\ExamLimit;
+use App\Student;
 
 class ResultController extends Controller
 {
@@ -39,6 +40,9 @@ class ResultController extends Controller
      */
     public function store(Request $request)
     {
+
+        $student = Student::where('lrn', Auth::user()->lrn)->get();
+
         $letterCodeE = 'E';
         $letterCodeI = 'I';
         $letterCodeS = 'S';
@@ -124,7 +128,7 @@ class ResultController extends Controller
         $result['f_percentage'] = $fPercentage;
         $result['j_percentage'] = $jPercentage;
         $result['p_percentage'] = $pPercentage;
-        $result['combination_id'] = $combinationData['id'];
+        $result['interpretation'] = $combinationData['interpretation'];
         Result::create($result);
 
         $data = array(
@@ -137,7 +141,8 @@ class ResultController extends Controller
             'N' => $this->getPercentage($questionsInformationCount, $countN),
             'S' => $this->getPercentage($questionsInformationCount, $countS),
             'E' => $this->getPercentage($questionsEnergyCount, $countE),
-            'I' => $this->getPercentage($questionsEnergyCount, $countI)
+            'I' => $this->getPercentage($questionsEnergyCount, $countI),
+            'student' => $student
         );
         $this->updateExamLimit(Auth::user()->id);
 

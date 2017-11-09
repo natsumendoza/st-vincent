@@ -14,7 +14,11 @@ class StudentController extends Controller
      */
     public function index()
     {
-        //
+
+        $students = Student::all()->toArray();
+        $data = array('students' => $students);
+
+        return view('admin/student/studentlist')->with($data);
     }
 
     /**
@@ -43,7 +47,9 @@ class StudentController extends Controller
             'gender' => 'required|string|max:255',
             'placeOfBirth' => 'required|string|max:255',
             'homeAddress' => 'required|string|max:255',
-            'contactNumber' => 'required|string|max:255'
+            'contactNumber' => 'required|string|max:255',
+            'grade' => 'required|string|max:255',
+            'section' => 'required|string|max:255'
         ]);
 
         $student = array();
@@ -55,6 +61,8 @@ class StudentController extends Controller
         $student['place_of_birth'] = $validated_student['placeOfBirth'];
         $student['home_address'] = $validated_student['homeAddress'];
         $student['contact_number'] = $validated_student['contactNumber'];
+        $student['grade'] = $validated_student['grade'];
+        $student['section'] = $validated_student['section'];
 
         // Father
         $student['name_father'] = $request['nameFather'];

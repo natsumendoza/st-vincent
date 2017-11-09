@@ -24,7 +24,7 @@ class CreateResultsTable extends Migration
             $table->string('f_percentage');
             $table->string('p_percentage');
             $table->string('j_percentage');
-            $table->integer('combination_id')->index()->unsigned()->nullable();
+            $table->string('interpretation')->nullable();
             $table->timestamps();
         });
     }

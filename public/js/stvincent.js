@@ -10,9 +10,4 @@ $(document).ready(function () {
         $('.tab' + (--page)).trigger('click');
     });
 
-    $('#birthday').datepicker();
-    $('#birthdayFather').datepicker();
-    $('#birthdayMother').datepicker();
-    $('#birthdayGuardian').datepicker();
-
 });

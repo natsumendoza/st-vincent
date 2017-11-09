@@ -3,6 +3,8 @@
 use App\Question;
 use App\Question2;
 use App\ExamLimit;
+use Illuminate\Support\Facades\DB;
+use App\Student;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +21,7 @@ Route::get('/', 'HomeController@index');
 Route::get('/exam', function () {
 
     $examLimit = ExamLimit::where('user_id', Auth::user()->id)->get()[0]['exam_count'];
+    $student = Student::where('lrn', Auth::user()->lrn)->get();
 
     if($examLimit < 2) {
         $letterCodeE = 'E';
@@ -38,16 +41,24 @@ Route::get('/exam', function () {
             'questionsEnergy' => $questionsEnergy,
             'questionsInformation' => $questionsInformation,
             'questionsDecisionMaking' => $questionsDecisionMaking,
-            'questionsLearningStyle' => $questionsLearningStyle
+            'questionsLearningStyle' => $questionsLearningStyle,
+            'student' => $student
         );
 
         return view('exam/exam')->with($datas);
     } else {
-        return view('exam/examlimitreached');
+        return view('exam/examlimitreached')->with(array('student' => $student));
     }
 });
 
+Route::get('/results', function () {
+    $studentResults = DB::table('students')->join('results', 'students.lrn', '=', 'results.lrn')->get();
+
+    return view('admin/student/studentresult')->with('studentResults', $studentResults);
+});
+
 Route::get('/studentresult', function () {
+
     return view('exam/studentresult');
 });
 
@@ -57,6 +68,7 @@ Route::resource('decisionmaking', 'DecisionMakingController');
 Route::resource('learningstyle', 'LearningStyleController');
 Route::resource('result', 'ResultController');
 Route::resource('student', 'StudentController');
+Route::resource('combination', 'CombinationController');
 
 
 Route::get('/studentlogin', function () {

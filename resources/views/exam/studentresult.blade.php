@@ -45,14 +45,18 @@
                                 </div>
                             </div>
                             <div class="row">
+
+                                @php
+                                    $careers = explode(",", $combinationData['careers']);
+                                    $count = 1;
+                                @endphp
+
                                 <div class="col-md-12 text-center my-auto text-primary">
                                     <h3>{{$combinationData['interpretation']}}</h3>
                                     <ul style="list-style: none;">
-                                        <li>1. {{$combinationData['career_1']}}</li>
-                                        <li>2. {{$combinationData['career_2']}}</li>
-                                        <li>3. {{$combinationData['career_3']}}</li>
-                                        <li>4. {{$combinationData['career_4']}}</li>
-                                        <li>5. {{$combinationData['career_5']}}</li>
+                                        @foreach($careers as $career)
+                                            <li>{{$count++}}. {{$career}}</li>
+                                        @endforeach
                                     </ul>
                                 </div>
                             </div>

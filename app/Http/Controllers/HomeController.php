@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use App\Student;
 
 class HomeController extends Controller
 {
@@ -32,7 +33,11 @@ class HomeController extends Controller
 //                die;
                 return view('admin/admin');
             } else {
-                return view('home');
+
+                $student = Student::where('lrn', Auth::user()->lrn)->get();
+                $data = array('student' => $student);
+
+                return view('home')->with($data);
             }
         } else {
             return view('index');

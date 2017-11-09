@@ -15,6 +15,8 @@ class Student extends Model
         'place_of_birth',
         'home_address',
         'contact_number',
+        'grade',
+        'section',
         'name_father',
         'birthday_father',
         'occupation_father',

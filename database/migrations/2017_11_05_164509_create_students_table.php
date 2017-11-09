@@ -25,6 +25,8 @@ class CreateStudentsTable extends Migration
             $table->string('place_of_birth');
             $table->string('home_address');
             $table->string('contact_number');
+            $table->string('grade');
+            $table->string('section');
 
             // Family Profile
             // Father

@@ -17,11 +17,8 @@ class CreateCombinationsTable extends Migration
             $table->increments('id');
             $table->string('combination');
             $table->string('interpretation');
-            $table->string('career_1');
-            $table->string('career_2');
-            $table->string('career_3');
-            $table->string('career_4');
-            $table->string('career_5');
+            $table->string('careers');
+            $table->integer('career_count');
             $table->timestamps();
         });
     }

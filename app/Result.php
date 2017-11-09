@@ -16,6 +16,6 @@ class Result extends Model
         'f_percentage',
         'p_percentage',
         'j_percentage',
-        'combination_id'
+        'interpretation'
     ];
 }

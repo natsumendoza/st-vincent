@@ -29,19 +29,19 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-                <a class="nav-link" href="index.html">
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Student">
+                <a class="nav-link" href="{{url('student')}}">
                     <i class="fa fa-fw fa-dashboard"></i>
                     <span class="nav-link-text">Student</span>
                 </a>
             </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Add New Student">
                 <a class="nav-link" href="{{url('student/create')}}">
                     <i class="fa fa-fw fa-area-chart"></i>
                     <span class="nav-link-text">Add New Student</span>
                 </a>
             </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Personality Type Indicator">
                 <a id="personality-type" class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
                     <i class="fa fa-fw fa-wrench"></i>
                     <span class="nav-link-text">Personality Type Indicator</span>
@@ -59,10 +59,13 @@
                     <li>
                         <a href="{{url('/learningstyle')}}">Learning Style</a>
                     </li>
+                    <li>
+                        <a href="{{url('/combination')}}">Combinations</a>
+                    </li>
                 </ul>
             </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-                <a class="nav-link" href="tables.html">
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Results">
+                <a class="nav-link" href="{{url('/results')}}">
                     <i class="fa fa-fw fa-table"></i>
                     <span class="nav-link-text">Results</span>
                 </a>
@@ -81,7 +84,7 @@
             @auth
                 <li class="nav-item">
                     <a class="nav-link">
-                        {{ Auth::user()->name }}
+                        Admin
                     </a>
                 </li>
                 <li class="nav-item">
@@ -118,7 +121,7 @@
 <script type="text/javascript" src="{{ env('APP_ENV') == 'local' ? asset('js/sb-admin-datatables.min.js') : secure_asset('js/sb-admin-datatables.min.js') }}"></script>
 <script type="text/javascript" src="{{ env('APP_ENV') == 'local' ? asset('js/sb-admin-charts.min.js') : secure_asset('js/sb-admin-charts.min.js') }}"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script type="text/javascript" src="{{ env('APP_ENV') == 'local' ? asset('js/stvincent.js') : secure_asset('js/stvincent.js') }}"></script>
+<script type="text/javascript" src="{{ env('APP_ENV') == 'local' ? asset('js/stvincentadmin.js') : secure_asset('js/stvincentadmin.js') }}"></script>
 </body>
 
 </html>
