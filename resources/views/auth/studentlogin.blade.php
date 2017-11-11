@@ -15,7 +15,7 @@
                                 <label for="lrn" class="col-md-4 control-label">LRN</label>
 
                                 <div class="col-md-6">
-                                    <input id="lrn" type="lrn" class="form-control" name="lrn" value="{{ old('lrn') }}" required autofocus>
+                                    <input id="lrn" maxlength="12" type="text" class="form-control" name="lrn" value="{{ old('lrn') }}" required autofocus>
 
                                     @if ($errors->has('lrn'))
                                         <span class="help-block">
