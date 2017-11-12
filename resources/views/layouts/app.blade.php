@@ -81,6 +81,6 @@
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script type="text/javascript" src="{{ env('APP_ENV') == 'local' ? asset('js/stvincent.js') : secure_asset('js/stvincent.js') }}"></script>
+    <script type="text/javascript" src="{{ env('APP_ENV') == 'local' ? asset('js/stvincentadmin.js') : secure_asset('js/stvincentadmin.js') }}"></script>
 </body>
 </html>
