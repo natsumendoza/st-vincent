@@ -32,47 +32,73 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Student">
-                <a class="nav-link" href="{{url('student')}}">
-                    <i class="fa fa-fw fa-dashboard"></i>
-                    <span class="nav-link-text">Student</span>
-                </a>
-            </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Add New Student">
-                <a class="nav-link" href="{{url('student/create')}}">
-                    <i class="fa fa-fw fa-area-chart"></i>
-                    <span class="nav-link-text">Add New Student</span>
-                </a>
-            </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Personality Type Indicator">
-                <a id="personality-type" class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
-                    <i class="fa fa-fw fa-wrench"></i>
-                    <span class="nav-link-text">Personality Type Indicator</span>
-                </a>
-                <ul class="sidenav-second-level collapse" id="collapseComponents">
-                    <li>
-                        <a href="{{url('/energy')}}">Energy</a>
+            @if(Auth::user()->isAdmin())
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Student">
+                    <a class="nav-link" href="{{url('student')}}">
+                        <i class="fa fa-fw fa-dashboard"></i>
+                        <span class="nav-link-text">Student</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Add New Student">
+                    <a class="nav-link" href="{{url('student/create')}}">
+                        <i class="fa fa-fw fa-area-chart"></i>
+                        <span class="nav-link-text">Add New Student</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Student Accounts">
+                    <a class="nav-link" href="{{url('studentaccount')}}">
+                        <i class="fa fa-fw fa-area-chart"></i>
+                        <span class="nav-link-text">Student Accounts</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Personality Type Indicator">
+                    <a id="personality-type" class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
+                        <i class="fa fa-fw fa-wrench"></i>
+                        <span class="nav-link-text">Personality Type Indicator</span>
+                    </a>
+                    <ul class="sidenav-second-level collapse" id="collapseComponents">
+                        <li>
+                            <a href="{{url('/energy')}}">Energy</a>
+                        </li>
+                        <li>
+                            <a href="{{url('/information')}}">Information</a>
+                        </li>
+                        <li>
+                            <a href="{{url('/decisionmaking')}}">Decision Making</a>
+                        </li>
+                        <li>
+                            <a href="{{url('/learningstyle')}}">Learning Style</a>
+                        </li>
+                        <li>
+                            <a href="{{url('/combination')}}">Combinations</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Results">
+                    <a class="nav-link" href="{{url('/results')}}">
+                        <i class="fa fa-fw fa-table"></i>
+                        <span class="nav-link-text">Results</span>
+                    </a>
+                </li>
+            @endif
+
+            @if(Auth::user()->isSuperAdmin())
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Admin Accounts">
+                        <a class="nav-link" href="{{url('adminaccount')}}">
+                            <i class="fa fa-fw fa-dashboard"></i>
+                            <span class="nav-link-text">Admin Accounts</span>
+                        </a>
                     </li>
-                    <li>
-                        <a href="{{url('/information')}}">Information</a>
+
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Admin Accounts">
+                        <a class="nav-link" href="{{url('adminaccount/create')}}">
+                            <i class="fa fa-fw fa-dashboard"></i>
+                            <span class="nav-link-text">Create Admin</span>
+                        </a>
                     </li>
-                    <li>
-                        <a href="{{url('/decisionmaking')}}">Decision Making</a>
-                    </li>
-                    <li>
-                        <a href="{{url('/learningstyle')}}">Learning Style</a>
-                    </li>
-                    <li>
-                        <a href="{{url('/combination')}}">Combinations</a>
-                    </li>
-                </ul>
-            </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Results">
-                <a class="nav-link" href="{{url('/results')}}">
-                    <i class="fa fa-fw fa-table"></i>
-                    <span class="nav-link-text">Results</span>
-                </a>
-            </li>
+
+
+            @endif
 
         </ul>
         <ul class="navbar-nav sidenav-toggler">
@@ -87,7 +113,7 @@
             @auth
                 <li class="nav-item">
                     <a class="nav-link">
-                        Admin
+                        {{(Auth::user()->isAdmin()) ? 'Admin' : 'Super Admin'}}
                     </a>
                 </li>
                 <li class="nav-item">

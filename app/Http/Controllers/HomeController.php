@@ -25,12 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-//        echo Auth::guest();
-//        die;
         if (!Auth::guest()) {
-            if(Auth::user()->isAdmin()) {
-//                echo Auth::user()->role['name'];
-//                die;
+            if(Auth::user()->isAdmin() || Auth::user()->isSuperAdmin()) {
                 return view('admin/admin');
             } else {
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Student;
+use App\ExamLimit;
 
 class StudentController extends Controller
 {
@@ -40,10 +41,10 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         $validated_student = $this->validate($request,[
-            'lrn' => 'required|string|max:255',
+            'lrn' => 'required|numeric',
             'name' => 'required|string|max:255',
             'birthday' => 'required|string|max:255',
-            'age' => 'required|string|max:255',
+            'age' => 'required|numeric',
             'gender' => 'required|string|max:255',
             'placeOfBirth' => 'required|string|max:255',
             'homeAddress' => 'required|string|max:255',
@@ -145,6 +146,8 @@ class StudentController extends Controller
 
         Student::create($student);
 
+
+
         return redirect('student/create')->with('success', 'Student has been added');
 
 
@@ -187,10 +190,10 @@ class StudentController extends Controller
         $id = base64_decode($id);
         $student = Student::find($id);
         $validated_student = $this->validate($request,[
-            'lrn' => 'required|string|max:255',
+            'lrn' => 'required|numeric',
             'name' => 'required|string|max:255',
             'birthday' => 'required|string|max:255',
-            'age' => 'required|string|max:255',
+            'age' => 'required|numeric',
             'gender' => 'required|string|max:255',
             'placeOfBirth' => 'required|string|max:255',
             'homeAddress' => 'required|string|max:255',
@@ -290,6 +293,18 @@ class StudentController extends Controller
         $student['academic_standing_grade12'] = $request['academicStandingGrade12'];
 
         $student->save();
+
+        if($request['grade'] == '10') {
+            $examLimitObj= ExamLimit::where('lrn', $student['lrn'])->get()[0];
+            $examLimit = ExamLimit::find($examLimitObj['id']);
+            $examLimit['exam_count'] = 1;
+            $examLimit->save();
+        } else if($request['grade'] == '12') {
+            $examLimitObj= ExamLimit::where('lrn', $student['lrn'])->get()[0];
+            $examLimit = ExamLimit::find($examLimitObj['id']);
+            $examLimit['exam_count'] = 0;
+            $examLimit->save();
+        }
 
         return redirect('student')->with('success', 'Student has been updated');
     }

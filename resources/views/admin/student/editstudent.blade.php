@@ -137,8 +137,20 @@
                                 <label for="contactNumber" class="col-md-4 control-label">Grade</label>
 
                                 <div class="col-md-6">
-                                    <input id="grade" type="text" class="form-control" name="grade" value="{{ $student['grade'] }}" required autofocus>
-
+                                    <select id="grade" type="text" class="form-control" name="grade" value="{{ $student['grade'] }}" required autofocus>
+                                        <option value="1" {{ ($student['grade'] == '1') ? "selected" : "" }}>1</option>
+                                        <option value="2" {{ ($student['grade'] == '2') ? "selected" : "" }}>2</option>
+                                        <option value="3" {{ ($student['grade'] == '3') ? "selected" : "" }}>3</option>
+                                        <option value="4" {{ ($student['grade'] == '4') ? "selected" : "" }}>4</option>
+                                        <option value="5" {{ ($student['grade'] == '5') ? "selected" : "" }}>5</option>
+                                        <option value="6" {{ ($student['grade'] == '6') ? "selected" : "" }}>6</option>
+                                        <option value="7" {{ ($student['grade'] == '7') ? "selected" : "" }}>7</option>
+                                        <option value="8" {{ ($student['grade'] == '8') ? "selected" : "" }}>8</option>
+                                        <option value="9" {{ ($student['grade'] == '9') ? "selected" : "" }}>9</option>
+                                        <option value="10" {{ ($student['grade'] == '10') ? "selected" : "" }}>10</option>
+                                        <option value="11" {{ ($student['grade'] == '11') ? "selected" : "" }}>11</option>
+                                        <option value="12" {{ ($student['grade'] == '12') ? "selected" : "" }}>12</option>
+                                    </select>
                                     @if ($errors->has('grade'))
                                         <span class="help-block">
                                         <strong>{{ $errors->first('grade') }}</strong>

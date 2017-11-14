@@ -20,34 +20,40 @@ use App\Student;
 Route::get('/', 'HomeController@index');
 Route::get('/exam', function () {
 
-    $examLimit = ExamLimit::where('user_id', Auth::user()->id)->get()[0]['exam_count'];
+    $examLimit = ExamLimit::where('lrn', Auth::user()->lrn)->get()[0]['exam_count'];
     $student = Student::where('lrn', Auth::user()->lrn)->get();
+    $grade10 = '10';
+    $grade12 = '12';
 
-    if($examLimit < 2) {
-        $letterCodeE = 'E';
-        $letterCodeI = 'I';
-        $letterCodeS = 'S';
-        $letterCodeN = 'N';
-        $letterCodeT = 'T';
-        $letterCodeF = 'F';
-        $letterCodeJ = 'J';
-        $letterCodeP = 'P';
-        $questionsEnergy = Question::all()->where('letter_code', $letterCodeE . ',' . $letterCodeI)->toArray();
-        $questionsInformation = Question::all()->where('letter_code', $letterCodeS . ',' . $letterCodeN)->toArray();
-        $questionsDecisionMaking = Question::all()->where('letter_code', $letterCodeT . ',' . $letterCodeF)->toArray();
-        $questionsLearningStyle = Question::all()->where('letter_code', $letterCodeJ . ',' . $letterCodeP)->toArray();
+    if(($student[0]['grade'] == $grade10) || ($student[0]['grade'] == $grade12)) {
+        if($examLimit < 1) {
+            $letterCodeE = 'E';
+            $letterCodeI = 'I';
+            $letterCodeS = 'S';
+            $letterCodeN = 'N';
+            $letterCodeT = 'T';
+            $letterCodeF = 'F';
+            $letterCodeJ = 'J';
+            $letterCodeP = 'P';
+            $questionsEnergy = Question::all()->where('letter_code', $letterCodeE . ',' . $letterCodeI)->toArray();
+            $questionsInformation = Question::all()->where('letter_code', $letterCodeS . ',' . $letterCodeN)->toArray();
+            $questionsDecisionMaking = Question::all()->where('letter_code', $letterCodeT . ',' . $letterCodeF)->toArray();
+            $questionsLearningStyle = Question::all()->where('letter_code', $letterCodeJ . ',' . $letterCodeP)->toArray();
 
-        $datas = array(
-            'questionsEnergy' => $questionsEnergy,
-            'questionsInformation' => $questionsInformation,
-            'questionsDecisionMaking' => $questionsDecisionMaking,
-            'questionsLearningStyle' => $questionsLearningStyle,
-            'student' => $student
-        );
+            $datas = array(
+                'questionsEnergy' => $questionsEnergy,
+                'questionsInformation' => $questionsInformation,
+                'questionsDecisionMaking' => $questionsDecisionMaking,
+                'questionsLearningStyle' => $questionsLearningStyle,
+                'student' => $student
+            );
 
-        return view('exam/exam')->with($datas);
+            return view('exam/exam')->with($datas);
+        } else {
+            return view('exam/examlimitreached')->with(array('student' => $student));
+        }
     } else {
-        return view('exam/examlimitreached')->with(array('student' => $student));
+        return view('exam/graderestricted')->with(array('student' => $student));
     }
 });
 
@@ -76,6 +82,10 @@ Route::resource('learningstyle', 'LearningStyleController');
 Route::resource('result', 'ResultController');
 Route::resource('student', 'StudentController');
 Route::resource('combination', 'CombinationController');
+Route::resource('question', 'QuestionController');
+Route::resource('studentaccount', 'StudentAccountController');
+Route::resource('adminaccount', 'AdminAccountController');
+
 
 
 Route::get('/studentlogin', function () {

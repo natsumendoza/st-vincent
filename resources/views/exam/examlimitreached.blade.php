@@ -11,7 +11,9 @@
 
                 <div class="col-lg-12">
                     <!-- Example Bar Chart Card-->
-                    <div class="card mb-3" style="height: 100%;">
+                    <div class="card mb-3" style="height: 100%;background-image: url(../image/SVSF-Logo.png);
+            background-repeat: no-repeat;
+            background-size: 500px 470px;background-position: center;">
 
                         <div class="card-body">
 

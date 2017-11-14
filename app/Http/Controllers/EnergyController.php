@@ -15,16 +15,10 @@ class EnergyController extends Controller
      */
     public function index()
     {
-        $letterCodeE = 'E';
-        $letterCodeI = 'I';
-        $letterCodeS = 'S';
-        $letterCodeN = 'N';
-        $letterCodeT = 'T';
-        $letterCodeF = 'F';
-        $letterCodeJ = 'J';
-        $letterCodeP = 'P';
-//        $questionsEnergyE = Question::where('letter_code', '$letterCodeE')->orderBy('question_no');
-        return view('admin/personalitytype/energy');
+        $statementType = 'Energy';
+        $questions = Question::where('statement_type', $statementType)->get();
+
+        return view('admin/personalitytype/energy')->with('questions', $questions);
     }
 
     /**

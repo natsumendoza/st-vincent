@@ -14,7 +14,10 @@ class InformationController extends Controller
      */
     public function index()
     {
-        return view('admin/personalitytype/information');
+        $statementType = 'Information';
+        $questions = Question::where('statement_type', $statementType)->get();
+
+        return view('admin/personalitytype/information')->with('questions', $questions);
     }
 
     /**

@@ -37,6 +37,51 @@
                                         <div class="col-md-4 my-auto text-center">
                                             <legend>Information</legend>
                                         </div>
+                                        <div class="col-md-12 my-auto text-center">
+                                            @php
+                                                $count = 1;
+                                            @endphp
+                                            <table class="table" style="width: 75%; margin: 0 auto;">
+                                                @foreach($questions as $question)
+                                                    @php
+
+                                                        $questionArray = explode(",", $question['statement']);
+                                                        $question1 = $questionArray[0];
+                                                        $question2 = $questionArray[1];
+
+                                                    @endphp
+
+                                                    <tr>
+                                                        <td align="left" width="300px">
+                                                            <div class="form-check form-check-inline" style="width: 100%;">
+                                                                <label class="form-check-label" style="width: 100%;">
+                                                                    1. {{$question1}}
+                                                                </label>
+                                                            </div>
+                                                        </td>
+                                                        <td align="left" width="300px">
+                                                            <div class="form-check form-check-inline" style="width: 100%;">
+                                                                <label class="form-check-label" style="width: 100%;">
+                                                                    2. {{$question2}}
+                                                                </label>
+                                                            </div>
+                                                        </td>
+                                                        <td align="left" width="300px">
+                                                            <div class="form-check form-check-inline" style="width: 100%;">
+                                                                <label class="form-check-label" style="width: 100%;">
+                                                                    <a class="btn btn-success" href="{{action('QuestionController@edit', base64_encode($question['id'].'/information'))}}">Edit</a>
+                                                                </label>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                            </table>
+                                        </div>
+
+                                        <div class="col-md-4 text-center" style="margin-top: 20px;">
+                                            <legend>Add New Question</legend>
+                                        </div>
+
 
                                         <div class="col-md-12 my-auto text-center">
                                             <form method="POST" action="{{url('information')}}">
@@ -48,7 +93,7 @@
                                                             <td align="left" width="300px">
                                                                 <div class="form-check form-check-inline" style="width: 100%;">
                                                                     <label class="form-check-label" style="width: 100%;">
-                                                                        1. <input id="question1" type="text" class="form-control" name="question1" value="{{ old('question1') }}" required autofocus>
+                                                                        1. <input id="question1" type="text" class="form-control" name="question1" value="{{ old('question1') }}" required>
 
                                                                         @if ($errors->has('question1'))
                                                                             <span class="help-block">
@@ -61,7 +106,7 @@
                                                             <td align="left" width="300px">
                                                                 <div class="form-check form-check-inline" style="width: 100%;">
                                                                     <label class="form-check-label" style="width: 100%;">
-                                                                        2. <input id="question2" type="text" class="form-control" name="question2" value="{{ old('question2') }}" required autofocus>
+                                                                        2. <input id="question2" type="text" class="form-control" name="question2" value="{{ old('question2') }}" required>
 
                                                                         @if ($errors->has('question2'))
                                                                             <span class="help-block">

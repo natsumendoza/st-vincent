@@ -2,6 +2,11 @@
 
 @section('content')
 <div class="container">
+    @if (\Session::has('error'))
+        <div class="alert alert-danger text-center">
+            <p>{{ \Session::get('error') }}</p>
+        </div><br />
+    @endif
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
@@ -29,7 +34,7 @@
                             <label for="password" class="col-md-4 control-label">Password</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
+                                <input id="password" type="password" minlength="9" class="form-control" name="password" required>
 
                                 @if ($errors->has('password'))
                                     <span class="help-block">
@@ -43,7 +48,7 @@
                             <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
 
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                                <input id="password-confirm" minlength="9" type="password" class="form-control" name="password_confirmation" required>
                             </div>
                         </div>
 

@@ -15,7 +15,7 @@ class CreateExamLimitsTable extends Migration
     {
         Schema::create('exam_limits', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
+            $table->string('lrn');
             $table->integer('exam_count');
             $table->timestamps();
         });

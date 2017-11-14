@@ -39,7 +39,7 @@
             @auth
                 <li class="nav-item">
                     <a class="nav-link">
-                        {{(isset($student[0]['name'])) ? $student[0]['name'] : 'Student'}}
+                        {{$student[0]['name']}}
                     </a>
                 </li>
                 <li class="nav-item">

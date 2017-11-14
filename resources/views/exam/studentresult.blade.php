@@ -16,7 +16,9 @@
 
                 <div class="col-lg-12">
                     <!-- Example Bar Chart Card-->
-                    <div class="card mb-3" style="height: 100%;">
+                    <div class="card mb-3" style="height: 100%; background-image: url(../image/SVSF-Logo.png);
+            background-repeat: no-repeat;
+            background-size: 500px 470px;background-position: center;">
 
                         <div class="card-body">
                             <div class="row">
@@ -32,7 +34,7 @@
                                             <input type="hidden" id="S" value="{{$S}}" />
                                             <input type="hidden" id="E" value="{{$E}}" />
                                             <input type="hidden" id="I" value="{{$I}}" />
-                                            <canvas id="myBarChart" width="100" height="50"></canvas>
+                                            <canvas id="myBarChart" width="150" height="50"></canvas>
                                         </div>
                                     </div>
                                 </div>

@@ -14,7 +14,10 @@ class LearningStyleController extends Controller
      */
     public function index()
     {
-        return view('admin/personalitytype/learningstyle');
+        $statementType = 'Learning Style';
+        $questions = Question::where('statement_type', $statementType)->get();
+
+        return view('admin/personalitytype/learningstyle')->with('questions', $questions);
     }
 
     /**

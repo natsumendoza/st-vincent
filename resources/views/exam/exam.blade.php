@@ -11,7 +11,9 @@
 
                                 <div class="col-lg-12">
                                     <!-- Example Bar Chart Card-->
-                                    <div class="card mb-3">
+                                    <div class="card mb-3" style="background-image: url(../image/SVSF-Logo.png);
+            background-repeat: no-repeat;
+            background-size: 500px 470px;background-position: center;">
 
                                         <div class="card-body">
                                             <div class="row">
@@ -59,7 +61,7 @@
                                                                                 <td align="left" width="300px">
                                                                                     <div class="form-check form-check-inline" >
                                                                                         <label class="form-check-label">
-                                                                                            <input type="radio" class="form-check-input" name="energy{{$countE}}" id="optionsRadios1" value="{{$letterCode1}}">
+                                                                                            <input type="radio" class="form-check-input" name="energy{{$countE}}" id="optionsRadios1" value="{{$letterCode1}}" required autofocus>
                                                                                             {{$question1}}
                                                                                         </label>
                                                                                     </div>
@@ -67,7 +69,7 @@
                                                                                 <td align="left" width="300px">
                                                                                     <div class="form-check form-check-inline">
                                                                                         <label class="form-check-label">
-                                                                                            <input type="radio" class="form-check-input" name="energy{{$countE}}" id="optionsRadios2" value="{{$letterCode2}}">
+                                                                                            <input type="radio" class="form-check-input" name="energy{{$countE}}" id="optionsRadios2" value="{{$letterCode2}}" required autofocus>
                                                                                             {{$question2}}
                                                                                         </label>
                                                                                     </div>
@@ -114,7 +116,7 @@
                                                                                 <td align="left" width="300px">
                                                                                     <div class="form-check form-check-inline" >
                                                                                         <label class="form-check-label">
-                                                                                            <input type="radio" class="form-check-input" name="information{{$countI}}" id="optionsRadios1" value="{{$letterCode1}}">
+                                                                                            <input type="radio" class="form-check-input" name="information{{$countI}}" id="optionsRadios1" value="{{$letterCode1}}" required autofocus>
                                                                                             {{$question1}}
                                                                                         </label>
                                                                                     </div>
@@ -122,7 +124,7 @@
                                                                                 <td align="left" width="300px">
                                                                                     <div class="form-check form-check-inline">
                                                                                         <label class="form-check-label">
-                                                                                            <input type="radio" class="form-check-input" name="information{{$countI}}" id="optionsRadios2" value="{{$letterCode2}}">
+                                                                                            <input type="radio" class="form-check-input" name="information{{$countI}}" id="optionsRadios2" value="{{$letterCode2}}" required autofocus>
                                                                                             {{$question2}}
                                                                                         </label>
                                                                                     </div>
@@ -173,7 +175,7 @@
                                                                                 <td align="left" width="300px">
                                                                                     <div class="form-check form-check-inline" >
                                                                                         <label class="form-check-label">
-                                                                                            <input type="radio" class="form-check-input" name="decisionmaking{{$countD}}" id="optionsRadios1" value="{{$letterCode1}}">
+                                                                                            <input type="radio" class="form-check-input" name="decisionmaking{{$countD}}" id="optionsRadios1" value="{{$letterCode1}}" required autofocus>
                                                                                             {{$question1}}
                                                                                         </label>
                                                                                     </div>
@@ -181,7 +183,7 @@
                                                                                 <td align="left" width="300px">
                                                                                     <div class="form-check form-check-inline">
                                                                                         <label class="form-check-label">
-                                                                                            <input type="radio" class="form-check-input" name="decisionmaking{{$countD}}" id="optionsRadios2" value="{{$letterCode2}}">
+                                                                                            <input type="radio" class="form-check-input" name="decisionmaking{{$countD}}" id="optionsRadios2" value="{{$letterCode2}}" required autofocus>
                                                                                             {{$question2}}
                                                                                         </label>
                                                                                     </div>
@@ -230,7 +232,7 @@
                                                                                 <td align="left" width="300px">
                                                                                     <div class="form-check form-check-inline" >
                                                                                         <label class="form-check-label">
-                                                                                            <input type="radio" class="form-check-input" name="learningstyle{{$countL}}" id="optionsRadios1" value="{{$letterCode1}}">
+                                                                                            <input type="radio" class="form-check-input" name="learningstyle{{$countL}}" id="optionsRadios1" value="{{$letterCode1}}" required autofocus>
                                                                                             {{$question1}}
                                                                                         </label>
                                                                                     </div>
@@ -238,7 +240,7 @@
                                                                                 <td align="left" width="300px">
                                                                                     <div class="form-check form-check-inline">
                                                                                         <label class="form-check-label">
-                                                                                            <input type="radio" class="form-check-input" name="learningstyle{{$countL}}" id="optionsRadios2" value="{{$letterCode2}}">
+                                                                                            <input type="radio" class="form-check-input" name="learningstyle{{$countL}}" id="optionsRadios2" value="{{$letterCode2}}" required autofocus>
                                                                                             {{$question2}}
                                                                                         </label>
                                                                                     </div>

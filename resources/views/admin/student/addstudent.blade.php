@@ -22,7 +22,7 @@
                                 <label for="lrn" class="col-md-4 control-label">LRN</label>
 
                                 <div class="col-md-6">
-                                    <input id="lrn" type="text" class="form-control" name="lrn" value="{{ old('lrn') }}" required autofocus>
+                                    <input id="lrn" placeholder="12 digit number" maxlength="12" type="text" class="form-control" name="lrn" value="{{ old('lrn') }}" required autofocus>
 
                                     @if ($errors->has('lrn'))
                                         <span class="help-block">
@@ -36,7 +36,7 @@
                                 <label for="name" class="col-md-4 control-label">Name</label>
 
                                 <div class="col-md-6">
-                                    <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+                                    <input id="name" placeholder="Full Name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
 
                                     @if ($errors->has('name'))
                                         <span class="help-block">
@@ -50,7 +50,7 @@
                                 <label for="birthday" class="col-md-4 control-label">Birthday</label>
 
                                 <div class="col-md-6">
-                                    <input id="birthday" type="text" class="form-control" name="birthday" value="{{ old('birthday') }}" required autofocus>
+                                    <input id="birthday" placeholder="MM/DD/YYYY" type="text" class="form-control" name="birthday" value="{{ old('birthday') }}" required autofocus>
 
                                     @if ($errors->has('birthday'))
                                         <span class="help-block">
@@ -64,7 +64,7 @@
                                 <label for="age" class="col-md-4 control-label">Age</label>
 
                                 <div class="col-md-6">
-                                    <input id="age" type="text" class="form-control" name="age" value="{{ old('age') }}" required autofocus>
+                                    <input id="age" type="text" placeholder="Your age" class="form-control" name="age" value="{{ old('age') }}" required autofocus>
 
                                     @if ($errors->has('age'))
                                         <span class="help-block">
@@ -94,7 +94,7 @@
                                 <label for="placeOfBirth" class="col-md-4 control-label">Place of birth</label>
 
                                 <div class="col-md-6">
-                                    <input id="placeOfBirth" type="text" class="form-control" name="placeOfBirth" value="{{ old('placeOfBirth') }}" required autofocus>
+                                    <input id="placeOfBirth" placeholder="Street number, Baranggay, City/Town, Province" type="text" class="form-control" name="placeOfBirth" value="{{ old('placeOfBirth') }}" required autofocus>
 
                                     @if ($errors->has('placeOfBirth'))
                                         <span class="help-block">
@@ -108,7 +108,7 @@
                                 <label for="homeAddress" class="col-md-4 control-label">Home Address</label>
 
                                 <div class="col-md-6">
-                                    <input id="homeAddress" type="text" class="form-control" name="homeAddress" value="{{ old('homeAddress') }}" required autofocus>
+                                    <input id="homeAddress" placeholder="Street number, Baranggay, City/Town, Province" type="text" class="form-control" name="homeAddress" value="{{ old('homeAddress') }}" required autofocus>
 
                                     @if ($errors->has('homeAddress'))
                                         <span class="help-block">
@@ -122,7 +122,7 @@
                                 <label for="contactNumber" class="col-md-4 control-label">Contact Number</label>
 
                                 <div class="col-md-6">
-                                    <input id="contactNumber" type="text" class="form-control" name="contactNumber" value="{{ old('contactNumber') }}" required autofocus>
+                                    <input id="contactNumber" placeholder="11 digit number" type="text" class="form-control" name="contactNumber" value="{{ old('contactNumber') }}" required autofocus>
 
                                     @if ($errors->has('contactNumber'))
                                         <span class="help-block">
@@ -136,8 +136,20 @@
                             <label for="contactNumber" class="col-md-4 control-label">Grade</label>
 
                             <div class="col-md-6">
-                                <input id="grade" type="text" class="form-control" name="grade" value="{{ old('grade') }}" required autofocus>
-
+                                <select id="grade" type="text" class="form-control" name="grade" value="{{ old('grade') }}" required autofocus>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                </select>
                                 @if ($errors->has('grade'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('grade') }}</strong>
@@ -150,7 +162,7 @@
                             <label for="contactNumber" class="col-md-4 control-label">Section</label>
 
                             <div class="col-md-6">
-                                <input id="section" type="text" class="form-control" name="section" value="{{ old('section') }}" required autofocus>
+                                <input id="section" placeholder="Name of section" type="text" class="form-control" name="section" value="{{ old('section') }}" required autofocus>
 
                                 @if ($errors->has('section'))
                                     <span class="help-block">

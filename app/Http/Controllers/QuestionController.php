@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Question;
 
-class DecisionMakingController extends Controller
+class QuestionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,11 +14,7 @@ class DecisionMakingController extends Controller
      */
     public function index()
     {
-        $statementType = 'Decision Making';
-        $questions = Question::where('statement_type', $statementType)->get();
-
-
-        return view('admin/personalitytype/decisionmaking')->with('questions', $questions);
+        //
     }
 
     /**
@@ -39,26 +35,7 @@ class DecisionMakingController extends Controller
      */
     public function store(Request $request)
     {
-        $letterCodeT = 'T';
-        $letterCodeF = 'F';
-        $statementType = 'Decision Making';
-
-        $validated_question = $this->validate($request,[
-            'question1' => 'required',
-            'question2' => 'required',
-        ]);
-
-
-        $question = array();
-        $question['letter_code'] = $letterCodeT . ',' . $letterCodeF;
-        $question['statement'] = $validated_question['question1'] . ',' . $validated_question['question2'];
-        $question['statement_type'] = $statementType;
-
-        $insertedQuestion1 = Question::create($question);
-
-        $this->updateQuestionNo($insertedQuestion1->id);
-
-        return redirect('decisionmaking')->with('success', 'Question has been added');
+        //
     }
 
     /**
@@ -80,7 +57,12 @@ class DecisionMakingController extends Controller
      */
     public function edit($id)
     {
-        //
+        $raw = base64_decode($id);
+        $decoded = explode("/", $raw);
+        $question = Question::find($decoded[0]);
+        $view = $decoded[1];
+
+        return view('admin/question/editquestion')->with(array('question' => $question, 'view' => $view));
     }
 
     /**
@@ -92,7 +74,27 @@ class DecisionMakingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $raw = base64_decode($id);
+        $decoded = explode("/", $raw);
+
+        $id = $decoded[0];
+        $view = $decoded[1];
+
+        $question = Question::find($id);
+
+
+        $validated_question = $this->validate($request,[
+            'question1' => 'required|string|max:255',
+            'question2' => 'required|string|max:255',
+        ]);
+        $statement = array();
+        $statement[0] = $validated_question['question1'];
+        $statement[1] = $validated_question['question2'];
+
+
+        $question['statement'] = implode(',', $statement);
+        $question->save();
+        return redirect(''.$view)->with('success','Question has been updated');
     }
 
     /**
@@ -104,15 +106,5 @@ class DecisionMakingController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function updateQuestionNo($id) {
-        $questionNo = $id;
-
-        $question = Question::find($id);
-
-        $question['question_no'] = $questionNo;
-
-        $question->save();
     }
 }

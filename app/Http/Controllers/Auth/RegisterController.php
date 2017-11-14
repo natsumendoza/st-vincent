@@ -7,6 +7,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use App\ExamLimit;
+use Illuminate\Http\Request;
+use App\Student;
+use Illuminate\Auth\Events\Registered;
 
 class RegisterController extends Controller
 {
@@ -50,8 +53,9 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'lrn' => 'required|string|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
+            'password' => 'required|string|min:9|confirmed',
         ]);
+        // |regex:/^(?=.*[a-z|A-Z])(?=.*[A-Z])(?=.*\d).+$/
     }
 
     /**
@@ -68,10 +72,31 @@ class RegisterController extends Controller
         ]);
 
         $examLimit = array();
-        $examLimit['user_id'] = $createdUser->id;
+        $examLimit['lrn'] = $createdUser->lrn;
         $examLimit['exam_count'] = 0;
         ExamLimit::create($examLimit);
 
         return $createdUser;
+    }
+
+    public function register(Request $request)
+    {
+        $student = Student::all()->where('lrn', $request['lrn']);
+        if (count($student) == 0) {
+            return redirect('register')->with('error', 'LRN does not exist');
+        } else {
+            $this->validator($request->all())->validate();
+
+            event(new Registered($user = $this->create($request->all())));
+
+            $this->guard()->login($user);
+
+            return $this->registered($request, $user)
+                ?: redirect($this->redirectPath());
+        }
+    }
+    protected function registered(Request $request, $user)
+    {
+        //
     }
 }
