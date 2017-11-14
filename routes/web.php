@@ -51,6 +51,10 @@ Route::get('/exam', function () {
     }
 });
 
+Route::get('/studentprofile', function () {
+    return view('admin/student/studentprofile');
+});
+
 Route::get('/results', function () {
     $studentResults = DB::table('students')->join('results', 'students.lrn', '=', 'results.lrn')->get();
 

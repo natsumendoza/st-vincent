@@ -33,7 +33,7 @@
                                                 <div class="tab-content" style="width: 100%;">
                                                     <div class="tab-pane active" id="tab1">
                                                         <div class="col-md-4 my-auto text-center">
-                                                            <legend>1. Energy</legend>
+                                                            <legend>I. Energy</legend>
                                                         </div>
 
                                                         <div class="col-md-12 my-auto text-center">
@@ -88,7 +88,7 @@
                                                     </div>
                                                     <div class="tab-pane" id="tab2">
                                                         <div class="col-md-4 my-auto text-center">
-                                                            <legend>2. Information</legend>
+                                                            <legend>II. Information</legend>
                                                         </div>
 
                                                         <div class="col-md-12 my-auto text-center">
@@ -148,7 +148,7 @@
                                                     </div>
                                                     <div class="tab-pane" id="tab3">
                                                         <div class="col-md-4 my-auto text-center">
-                                                            <legend>3. Decision-making</legend>
+                                                            <legend>III. Decision-making</legend>
                                                         </div>
 
                                                         <div class="col-md-12 my-auto text-center">
@@ -206,7 +206,7 @@
                                                     </div>
                                                     <div class="tab-pane" id="tab4">
                                                         <div class="col-md-4 my-auto text-center">
-                                                            <legend>4. Learning Style</legend>
+                                                            <legend>IV. Learning Style</legend>
                                                         </div>
 
                                                         <div class="col-md-12 my-auto text-center">
