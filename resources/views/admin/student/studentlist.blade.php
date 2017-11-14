@@ -25,7 +25,7 @@
                                         @if(count($students) > 0)
                                             @foreach($students as $student)
                                                 <tr>
-                                                    <td>{{$student['name']}}</td>
+                                                    <td><a href="{{url('/studentprofile/'.$student['id'])}}">{{$student['name']}}</a></td>
                                                     <td>{{$student['grade']}}</td>
                                                     <td>{{$student['section']}}</td>
                                                 </tr>

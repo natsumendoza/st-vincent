@@ -51,8 +51,11 @@ Route::get('/exam', function () {
     }
 });
 
-Route::get('/studentprofile', function () {
-    return view('admin/student/studentprofile');
+Route::get('/studentprofile/{id}', function ($id) {
+
+    $student = Student::find($id);
+
+    return view('admin/student/studentprofile')->with(array('student' => $student));
 });
 
 Route::get('/results', function () {

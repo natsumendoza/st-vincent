@@ -19,18 +19,18 @@
                                     <table>
                                         <tr>
                                             <td><h3>Name:</h3></td>
-                                            <td>Roxel Roll M. Mendoza</td>
+                                            <td>{{$student['name']}}</td>
                                         </tr>
                                         <tr>
                                             <td><h3>Gender:</h3></td>
-                                            <td>Male</td>
+                                            <td>{{$student['gender']}}</td>
                                         </tr>
                                         <tr>
                                             <td style="width: 185px;"><h3>Grade Level:</h3></td>
-                                            <td>2</td>
+                                            <td>{{$student['grade']}}</td>
                                         </tr><tr>
                                             <td><h3>Section:</h3></td>
-                                            <td>Rose</td>
+                                            <td>{{$student['section']}}</td>
                                         </tr>
 
                                     </table>
@@ -58,18 +58,18 @@
                                                 <table style="margin-left: 62px;">
                                                     <tr>
                                                         <td><h5>Age:</h5></td>
-                                                        <td>15</td>
+                                                        <td>{{$student['age']}}</td>
                                                     </tr>
                                                     <tr>
                                                         <td><h5>Birthday:</h5></td>
-                                                        <td>11/14/2017</td>
+                                                        <td>{{$student['birthday']}}</td>
                                                     </tr>
                                                     <tr>
                                                         <td><h5>Guardian:</h5></td>
-                                                        <td>Gol D. Roger</td>
+                                                        <td>{{$student['name_guardian']}}</td>
                                                     </tr><tr>
                                                         <td><h5>Contact #:</h5></td>
-                                                        <td>09501234561</td>
+                                                        <td>{{$student['contact_number']}}</td>
                                                     </tr>
 
                                                 </table>
