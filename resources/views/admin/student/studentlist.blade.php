@@ -4,6 +4,11 @@
 
     <div class="content-wrapper">
         <div class="container-fluid" style="">
+            @if (\Session::has('success'))
+                <div class="alert alert-success text-center">
+                    <p>{{ \Session::get('success') }}</p>
+                </div><br />
+            @endif
             <div class="row">
                 <div class="col-lg-12">
 
@@ -18,6 +23,7 @@
                                         <th>Name</th>
                                         <th>Grade</th>
                                         <th>Section</th>
+                                        <th>Action</th>
                                     </tr>
                                     </thead>
 
@@ -28,6 +34,7 @@
                                                     <td><a href="{{url('/studentprofile/'.$student['id'])}}">{{$student['name']}}</a></td>
                                                     <td>{{$student['grade']}}</td>
                                                     <td>{{$student['section']}}</td>
+                                                    <td><a class="btn btn-success" href="{{action('StudentController@edit', base64_encode($student['id']))}}">Edit</a></td>
                                                 </tr>
                                             @endforeach
                                         @endif
