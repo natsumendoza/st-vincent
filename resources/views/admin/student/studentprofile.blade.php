@@ -23,6 +23,10 @@
                                 <div class="col-md-8">
                                     <table>
                                         <tr>
+                                            <td><h3>LRN:</h3></td>
+                                            <td>{{$student['lrn']}}</td>
+                                        </tr>
+                                        <tr>
                                             <td><h3>Name:</h3></td>
                                             <td>{{$student['name']}}</td>
                                         </tr>

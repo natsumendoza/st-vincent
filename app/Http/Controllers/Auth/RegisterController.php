@@ -53,7 +53,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'lrn' => 'required|string|max:255|unique:users',
-            'password' => 'required|string|min:9|confirmed',
+            'password' => 'required|string|min:9|confirmed|case_diff|numbers|letters|symbols',
         ]);
         // |regex:/^(?=.*[a-z|A-Z])(?=.*[A-Z])(?=.*\d).+$/
     }
@@ -71,10 +71,7 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
         ]);
 
-        $examLimit = array();
-        $examLimit['lrn'] = $createdUser->lrn;
-        $examLimit['exam_count'] = 0;
-        ExamLimit::create($examLimit);
+
 
         return $createdUser;
     }

@@ -40,9 +40,7 @@ class LoginController extends Controller
 
     protected function validateLogin(Request $request)
     {
-//        echo '<pre>';
-//        echo $request['loginType'];
-//        die;
+
         $loginType = $request['loginType'];
         if($loginType == 'admin') {
             $this->validate($request, [

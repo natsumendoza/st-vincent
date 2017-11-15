@@ -156,8 +156,12 @@ class StudentController extends Controller
         $student['year_completed_grade12'] = $request['yearCompletedGrade12'];
         $student['academic_standing_grade12'] = $request['academicStandingGrade12'];
 
-        Student::create($student);
+        $createdUser = Student::create($student);
 
+        $examLimit = array();
+        $examLimit['lrn'] = $createdUser->lrn;
+        $examLimit['exam_count'] = 0;
+        ExamLimit::create($examLimit);
 
 
         return redirect('student/create')->with('success', 'Student has been added');

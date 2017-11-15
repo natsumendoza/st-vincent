@@ -147,7 +147,7 @@
                                     <label for="contactNumber" class="col-md-4 control-label">Contact Number</label>
 
                                     <div class="col-md-6">
-                                        <input id="contactNumber" placeholder="11 digit number" type="text" class="form-control" name="contactNumber" value="{{ old('contactNumber') }}" required autofocus>
+                                        <input id="contactNumber" maxlength="11" placeholder="11 digit number" type="text" class="form-control" name="contactNumber" value="{{ old('contactNumber') }}" required autofocus>
 
                                         @if ($errors->has('contactNumber'))
                                             <span class="help-block">
