@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Student;
 use App\ExamLimit;
+use Illuminate\Support\Facades\Auth;
 
 class StudentController extends Controller
 {
@@ -43,6 +44,7 @@ class StudentController extends Controller
         $validated_student = $this->validate($request,[
             'lrn' => 'required|numeric',
             'name' => 'required|string|max:255',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg,PNG,JPG,JPEG|max:2048',
             'birthday' => 'required|string|max:255',
             'age' => 'required|numeric',
             'gender' => 'required|string|max:255',
@@ -56,6 +58,16 @@ class StudentController extends Controller
         $student = array();
         $student['lrn'] = $validated_student['lrn'];
         $student['name'] = $validated_student['name'];
+
+        if(isset($request['image'])) {
+
+            $cleanName = preg_replace('/\s+/', '_', $validated_student['lrn']);
+            $imageName =   $cleanName . (Auth::user()->id * 2) . time() . '.'.$request->file('image')->getClientOriginalExtension();
+            $request->file('image')->move(public_path('image/student'), $imageName);
+
+            $student['image_path'] = $imageName;
+        }
+
         $student['birthday'] = $validated_student['birthday'];
         $student['age'] = $validated_student['age'];
         $student['gender'] = $validated_student['gender'];

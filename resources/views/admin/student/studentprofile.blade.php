@@ -4,6 +4,11 @@
 
     <div class="content-wrapper">
         <div class="container-fluid" style="">
+            @if (\Session::has('success'))
+                <div class="alert alert-success text-center">
+                    <p>{{ \Session::get('success') }}</p>
+                </div><br />
+            @endif
             <div class="row">
                 <div class="col-lg-12">
 
@@ -13,7 +18,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-4 text-right">
-                                    <img src="{{asset('image/SVSF-Logo.JPG')}}">
+                                    <img width="196" height="178" alt="" src="{{asset('image/student/'.$student['image_path'])}}">
                                 </div>
                                 <div class="col-md-8">
                                     <table>
@@ -83,9 +88,13 @@
                                             </div>
                                             <div class="col-md-10 my-auto">
                                                 <div style="margin-left: 65px;">
-                                                    <h5>1. Good Student</h5>
-                                                    <h5>2. Honest</h5>
-                                                    <a href="" class="btn btn-success">Add remarks</a>
+                                                    @php
+                                                        $count = 1;
+                                                    @endphp
+                                                    @foreach($remarks as $remark)
+                                                        <h5>{{$count++}}. {{$remark['comment']}}</h5>
+                                                    @endforeach
+                                                    <a class="btn btn-success" href="{{action('RemarkController@edit', base64_encode($student['lrn']))}}">Add remarks</a>
                                                 </div>
                                             </div>
 
@@ -98,15 +107,18 @@
                                                 </div>
                                                 <div class="col-md-10 my-auto text-left">
                                                     <table style="margin-left: 62px;">
-                                                        <tr>
-                                                            <td><h5>Grade 10: </h5></td>
-                                                            <td>Realist who are quick to make practical decisions.</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><h5>Grade 12: </h5></td>
-                                                            <td>Hard workers who value their responsibilities and commitments.</td>
-                                                        </tr>
-
+                                                        @if(count($results) > 0)
+                                                            <tr>
+                                                                <td><h5>Grade 10: </h5></td>
+                                                                <td>{{$results[0]['interpretation']}}</td>
+                                                            </tr>
+                                                            @if(isset($results[1]))
+                                                                    <tr>
+                                                                        <td><h5>Grade 12: </h5></td>
+                                                                        <td>{{$results[1]['interpretation']}}</td>
+                                                                    </tr>
+                                                            @endif
+                                                        @endif
 
                                                     </table>
                                                 </div>

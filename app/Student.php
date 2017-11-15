@@ -9,6 +9,7 @@ class Student extends Model
     protected $fillable = [
         'lrn',
         'name',
+        'image_path',
         'birthday',
         'age',
         'gender',

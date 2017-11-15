@@ -5,6 +5,8 @@ use App\Question2;
 use App\ExamLimit;
 use Illuminate\Support\Facades\DB;
 use App\Student;
+use App\Result;
+use App\Remark;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,8 +62,10 @@ Route::get('/exam', function () {
 Route::get('/studentprofile/{id}', function ($id) {
 
     $student = Student::find($id);
+    $results = Result::where('lrn', $student['lrn'])->take(2)->get();
+    $remarks = Remark::where('lrn', $student['lrn'])->orderBy('created_at')->get();
 
-    return view('admin/student/studentprofile')->with(array('student' => $student));
+    return view('admin/student/studentprofile')->with(array('student' => $student, 'results' => $results, 'remarks' => $remarks));
 });
 
 Route::get('/results', function () {
@@ -85,6 +89,7 @@ Route::resource('combination', 'CombinationController');
 Route::resource('question', 'QuestionController');
 Route::resource('studentaccount', 'StudentAccountController');
 Route::resource('adminaccount', 'AdminAccountController');
+Route::resource('remark', 'RemarkController');
 
 
 
