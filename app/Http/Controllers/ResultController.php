@@ -144,7 +144,7 @@ class ResultController extends Controller
             'I' => $this->getPercentage($questionsEnergyCount, $countI),
             'student' => $student
         );
-        $this->updateExamLimit(Auth::user()->id);
+        $this->updateExamLimit(Auth::user()->lrn);
 
         return view('exam/studentresult')->with($data);
 
@@ -208,8 +208,8 @@ class ResultController extends Controller
         return round((($letterCodeCount / $count) * 100), 2);
     }
 
-    public function updateExamLimit($id) {
-        $examLimit = ExamLimit::where('user_id', $id)->get()[0];
+    public function updateExamLimit($lrn) {
+        $examLimit = ExamLimit::where('lrn', $lrn)->get()[0];
         $examLimit['exam_count'] += 1;
         $examLimit->save();
     }
