@@ -18,7 +18,8 @@
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col-md-12 text-center my-auto">
-                                                    <h4>Personality Type Indicator Test</h4>
+                                                    <h3>Personality Type Indicator Test</h3>
+                                                    <h5>Choose a selection based on your preferences</h5>
                                                 </div>
 
                                             </div>
@@ -59,6 +60,7 @@
                                                                             @endphp
                                                                             <tr>
                                                                                 <td align="left" width="300px">
+                                                                                    {{$countE}}.
                                                                                     <div class="form-check form-check-inline" >
                                                                                         <label class="form-check-label">
                                                                                             <input type="radio" class="form-check-input" name="energy{{$countE}}" id="optionsRadios1" value="{{$letterCode1}}" required autofocus>
@@ -114,6 +116,7 @@
                                                                             @endphp
                                                                             <tr>
                                                                                 <td align="left" width="300px">
+                                                                                    {{$countI}}.
                                                                                     <div class="form-check form-check-inline" >
                                                                                         <label class="form-check-label">
                                                                                             <input type="radio" class="form-check-input" name="information{{$countI}}" id="optionsRadios1" value="{{$letterCode1}}" required autofocus>
@@ -173,6 +176,7 @@
                                                                             @endphp
                                                                             <tr>
                                                                                 <td align="left" width="300px">
+                                                                                    {{$countD}}.
                                                                                     <div class="form-check form-check-inline" >
                                                                                         <label class="form-check-label">
                                                                                             <input type="radio" class="form-check-input" name="decisionmaking{{$countD}}" id="optionsRadios1" value="{{$letterCode1}}" required autofocus>
@@ -230,6 +234,7 @@
                                                                             @endphp
                                                                             <tr>
                                                                                 <td align="left" width="300px">
+                                                                                    {{$countL}}.
                                                                                     <div class="form-check form-check-inline" >
                                                                                         <label class="form-check-label">
                                                                                             <input type="radio" class="form-check-input" name="learningstyle{{$countL}}" id="optionsRadios1" value="{{$letterCode1}}" required autofocus>
