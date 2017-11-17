@@ -176,6 +176,7 @@
                                             <option value="12">12</option>
                                             <option value="transferee">Transferee</option>
                                             <option value="drop-out">Drop out</option>
+											<option value="graduate">Graduate</option>
                                         </select>
                                         @if ($errors->has('grade'))
                                             <span class="help-block">

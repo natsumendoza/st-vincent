@@ -161,7 +161,10 @@
                                                 <option value="10" {{ ($student['grade'] == '10') ? "selected" : "" }}>10</option>
                                                 <option value="11" {{ ($student['grade'] == '11') ? "selected" : "" }}>11</option>
                                                 <option value="12" {{ ($student['grade'] == '12') ? "selected" : "" }}>12</option>
-                                            </select>
+												<option value="12" {{ ($student['grade'] == 'transferee') ? "selected" : "" }}>Transferee</option>
+												<option value="12" {{ ($student['grade'] == 'drop-out') ? "selected" : "" }}>Drop out</option>
+												<option value="12" {{ ($student['grade'] == 'graduate') ? "selected" : "" }}>Graduate</option>
+											</select>
                                             @if ($errors->has('grade'))
                                                 <span class="help-block">
                                         <strong>{{ $errors->first('grade') }}</strong>
