@@ -43,7 +43,9 @@ class StudentController extends Controller
     {
         $validated_student = $this->validate($request,[
             'lrn' => 'required|numeric',
-            'name' => 'required|string|max:255',
+            'firstName' => 'required|string|max:255',
+            'middleName' => 'string|max:255',
+            'lastName' => 'required|string|max:255',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg,PNG,JPG,JPEG|max:2048',
             'birthday' => 'required|string|max:255',
             'age' => 'required|numeric',
@@ -57,7 +59,9 @@ class StudentController extends Controller
 
         $student = array();
         $student['lrn'] = $validated_student['lrn'];
-        $student['name'] = $validated_student['name'];
+        $student['first_name'] = $validated_student['firstName'];
+        $student['middle_name'] = $validated_student['middleName'];
+        $student['last_name'] = $validated_student['lastName'];
 
         if(isset($request['image'])) {
 
@@ -78,28 +82,36 @@ class StudentController extends Controller
         $student['section'] = $validated_student['section'];
 
         // Father
-        $student['name_father'] = $request['nameFather'];
+        $student['first_name_father'] = $request['firstNameFather'];
+        $student['middle_name_father'] = $request['middleNameFather'];
+        $student['last_name_father'] = $request['lastNameFather'];
         $student['birthday_father'] = $request['birthdayFather'];
         $student['occupation_father'] = $request['occupationFather'];
         $student['home_address_father'] = $request['homeAddressFather'];
         $student['contact_number_father'] = $request['contactNumberFather'];
 
         // Mother
-        $student['name_mother'] = $request['nameMother'];
+        $student['first_name_mother'] = $request['firstNameMother'];
+        $student['middle_name_mother'] = $request['middleNameMother'];
+        $student['last_name_mother'] = $request['lastNameMother'];
         $student['birthday_mother'] = $request['birthdayMother'];
         $student['occupation_mother'] = $request['occupationMother'];
         $student['home_address_mother'] = $request['homeAddressMother'];
         $student['contact_number_mother'] = $request['contactNumberMother'];
 
         // Guardian
-        $student['name_guardian'] = $request['nameGuardian'];
+        $student['first_name_guardian'] = $request['firstNameGuardian'];
+        $student['middle_name_guardian'] = $request['middleNameGuardian'];
+        $student['last_name_guardian'] = $request['lastNameGuardian'];
         $student['birthday_guardian'] = $request['birthdayGuardian'];
         $student['occupation_guardian'] = $request['occupationGuardian'];
         $student['home_address_guardian'] = $request['homeAddressGuardian'];
         $student['contact_number_guardian'] = $request['contactNumberGuardian'];
 
         // Sibling
-        $student['name_sibling'] = $request['nameSlibling'];
+        $student['first_name_sibling'] = $request['firstNameSlibling'];
+        $student['middle_name_sibling'] = $request['middleNameSlibling'];
+        $student['last_name_sibling'] = $request['lastNameSlibling'];
         $student['age_sibling'] = $request['ageSibling'];
 
         //Educational Profile
@@ -207,7 +219,9 @@ class StudentController extends Controller
         $student = Student::find($id);
         $validated_student = $this->validate($request,[
             'lrn' => 'required|numeric',
-            'name' => 'required|string|max:255',
+            'firstName' => 'required|string|max:255',
+            'middleName' => 'string|max:255',
+            'lastName' => 'required|string|max:255',
             'birthday' => 'required|string|max:255',
             'age' => 'required|numeric',
             'gender' => 'required|string|max:255',
@@ -219,7 +233,19 @@ class StudentController extends Controller
         ]);
 
         $student['lrn'] = $validated_student['lrn'];
-        $student['name'] = $validated_student['name'];
+        $student['first_name'] = $validated_student['firstName'];
+        $student['middle_name'] = $validated_student['middleName'];
+        $student['last_name'] = $validated_student['lastName'];
+
+        if(isset($request['image'])) {
+
+            $cleanName = preg_replace('/\s+/', '_', $validated_student['lrn']);
+            $imageName =   $cleanName . (Auth::user()->id * 2) . time() . '.'.$request->file('image')->getClientOriginalExtension();
+            $request->file('image')->move(public_path('image/student'), $imageName);
+
+            $student['image_path'] = $imageName;
+        }
+
         $student['birthday'] = $validated_student['birthday'];
         $student['age'] = $validated_student['age'];
         $student['gender'] = $validated_student['gender'];
@@ -230,28 +256,36 @@ class StudentController extends Controller
         $student['section'] = $validated_student['section'];
 
         // Father
-        $student['name_father'] = $request['nameFather'];
+        $student['first_name_father'] = $request['firstNameFather'];
+        $student['middle_name_father'] = $request['middleNameFather'];
+        $student['last_name_father'] = $request['lastNameFather'];
         $student['birthday_father'] = $request['birthdayFather'];
         $student['occupation_father'] = $request['occupationFather'];
         $student['home_address_father'] = $request['homeAddressFather'];
         $student['contact_number_father'] = $request['contactNumberFather'];
 
         // Mother
-        $student['name_mother'] = $request['nameMother'];
+        $student['first_name_mother'] = $request['firstNameMother'];
+        $student['middle_name_mother'] = $request['middleNameMother'];
+        $student['last_name_mother'] = $request['lastNameMother'];
         $student['birthday_mother'] = $request['birthdayMother'];
         $student['occupation_mother'] = $request['occupationMother'];
         $student['home_address_mother'] = $request['homeAddressMother'];
         $student['contact_number_mother'] = $request['contactNumberMother'];
 
         // Guardian
-        $student['name_guardian'] = $request['nameGuardian'];
+        $student['first_name_guardian'] = $request['firstNameGuardian'];
+        $student['middle_name_guardian'] = $request['middleNameGuardian'];
+        $student['last_name_guardian'] = $request['lastNameGuardian'];
         $student['birthday_guardian'] = $request['birthdayGuardian'];
         $student['occupation_guardian'] = $request['occupationGuardian'];
         $student['home_address_guardian'] = $request['homeAddressGuardian'];
         $student['contact_number_guardian'] = $request['contactNumberGuardian'];
 
         // Sibling
-        $student['name_sibling'] = $request['nameSlibling'];
+        $student['first_name_sibling'] = $request['firstNameSlibling'];
+        $student['middle_name_sibling'] = $request['middleNameSlibling'];
+        $student['last_name_sibling'] = $request['lastNameSlibling'];
         $student['age_sibling'] = $request['ageSibling'];
 
         //Educational Profile

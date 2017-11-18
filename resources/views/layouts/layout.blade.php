@@ -39,7 +39,7 @@
             @auth
                 <li class="nav-item">
                     <a class="nav-link">
-                        {{$student[0]['name']}}
+                        {{$student[0]['first_name'].' '.$student[0]['middle_name'] . ' ' .$student[0]['last_name']}}
                     </a>
                 </li>
                 <li class="nav-item">

@@ -17,7 +17,9 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
+    <div id="app" style="
+        background-size: 100% 100%; min-height: 638px; background-repeat: no-repeat; background-image: url(../images/login_bg.jpeg);
+    ">
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container" style="width: 100%; background-color: #343a40 !important;">
                 <div class="navbar-header">

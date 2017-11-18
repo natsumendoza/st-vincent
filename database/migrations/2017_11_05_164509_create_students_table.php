@@ -18,7 +18,9 @@ class CreateStudentsTable extends Migration
 
             // Personal Profile
             $table->string('lrn')->unique();
-            $table->string('name');
+            $table->string('first_name');
+            $table->string('middle_name');
+            $table->string('last_name');
             $table->string('image_path')->nullable();
             $table->string('birthday');
             $table->string('age');
@@ -31,28 +33,36 @@ class CreateStudentsTable extends Migration
 
             // Family Profile
             // Father
-            $table->string('name_father')->nullable();
+            $table->string('first_name_father')->nullable();
+            $table->string('middle_name_father')->nullable();
+            $table->string('last_name_father')->nullable();
             $table->string('birthday_father')->nullable();
             $table->string('occupation_father')->nullable();
             $table->string('home_address_father')->nullable();
             $table->string('contact_number_father')->nullable();
 
             // Mother
-            $table->string('name_mother')->nullable();
+            $table->string('first_name_mother')->nullable();
+            $table->string('middle_name_mother')->nullable();
+            $table->string('last_name_mother')->nullable();
             $table->string('birthday_mother')->nullable();
             $table->string('occupation_mother')->nullable();
             $table->string('home_address_mother')->nullable();
             $table->string('contact_number_mother')->nullable();
 
             // Guardian
-            $table->string('name_guardian')->nullable();
+            $table->string('first_name_guardian')->nullable();
+            $table->string('middle_name_guardian')->nullable();
+            $table->string('last_name_guardian')->nullable();
             $table->string('birthday_guardian')->nullable();
             $table->string('occupation_guardian')->nullable();
             $table->string('home_address_guardian')->nullable();
             $table->string('contact_number_guardian')->nullable();
 
             // Sibling
-            $table->string('name_sibling')->nullable();
+            $table->string('first_name_sibling')->nullable();
+            $table->string('middle_name_sibling')->nullable();
+            $table->string('last_name_sibling')->nullable();
             $table->string('age_sibling')->nullable();
 
             // Educational Profile

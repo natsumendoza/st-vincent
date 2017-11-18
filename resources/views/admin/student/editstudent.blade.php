@@ -44,19 +44,62 @@
                                         </div>
                                     </div>
 
-                                    <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                                        <label for="name" class="col-md-4 control-label">Name</label>
+                                    <div class="form-group{{ $errors->has('firstName') ? ' has-error' : '' }}">
+                                        <label for="firstName" class="col-md-4 control-label">First Name</label>
 
                                         <div class="col-md-6">
-                                            <input id="name" type="text" class="form-control" name="name" value="{{ $student['name'] }}" required autofocus>
+                                            <input id="firstName" type="text" class="form-control" name="firstName" value="{{ $student['first_name'] }}" required autofocus>
 
-                                            @if ($errors->has('name'))
+                                            @if ($errors->has('firstName'))
                                                 <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
+                                        <strong>{{ $errors->first('firstName') }}</strong>
                                     </span>
                                             @endif
                                         </div>
                                     </div>
+
+                                    <div class="form-group{{ $errors->has('middleName') ? ' has-error' : '' }}">
+                                        <label for="middleName" class="col-md-4 control-label">Middle Name</label>
+
+                                        <div class="col-md-6">
+                                            <input id="middleName" type="text" class="form-control" name="middleName" value="{{ $student['middle_name'] }}" required autofocus>
+
+                                            @if ($errors->has('middleName'))
+                                                <span class="help-block">
+                                        <strong>{{ $errors->first('middleName') }}</strong>
+                                    </span>
+                                            @endif
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group{{ $errors->has('lastName') ? ' has-error' : '' }}">
+                                        <label for="lastName" class="col-md-4 control-label">Last Name</label>
+
+                                        <div class="col-md-6">
+                                            <input id="lastName" type="text" class="form-control" name="lastName" value="{{ $student['last_name'] }}" required autofocus>
+
+                                            @if ($errors->has('lastName'))
+                                                <span class="help-block">
+                                        <strong>{{ $errors->first('lastName') }}</strong>
+                                    </span>
+                                            @endif
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group{{ $errors->has('image') ? ' has-error' : '' }}">
+                                        <label for="image" class="col-md-4 control-label">Picture (optional)</label>
+
+                                        <div class="col-md-6">
+                                            <input id="image" type="file" class="form-control" name="image" value="">
+
+                                            @if ($errors->has('image'))
+                                                <span class="help-block">
+                                        <strong>{{ $errors->first('image') }}</strong>
+                                    </span>
+                                            @endif
+                                        </div>
+                                    </div>
+
 
                                     <div class="form-group{{ $errors->has('birthday') ? ' has-error' : '' }}">
                                         <label for="birthday" class="col-md-4 control-label">Birthday</label>
@@ -194,10 +237,26 @@
                                 <div class="panel-heading">Father</div>
                                 <div class="panel-body">
                                     <div class="form-group">
-                                        <label for="nameFather" class="col-md-4 control-label">Name</label>
+                                        <label for="firstNameFather" class="col-md-4 control-label">First Name</label>
 
                                         <div class="col-md-6">
-                                            <input id="nameFather" type="text" class="form-control" name="nameFather" value="{{ old('nameFather') }}">
+                                            <input id="firstNameFather" type="text" class="form-control" name="firstNameFather" value="{{ $student['first_name_father'] }}">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="middleNameFather" class="col-md-4 control-label">Middle Name</label>
+
+                                        <div class="col-md-6">
+                                            <input id="middleNameFather" type="text" class="form-control" name="middleNameFather" value="{{ $student['middle_name_father'] }}">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="lastNameFather" class="col-md-4 control-label">Last Name</label>
+
+                                        <div class="col-md-6">
+                                            <input id="lastNameFather" type="text" class="form-control" name="lastNameFather" value="{{ $student['last_name_father'] }}">
                                         </div>
                                     </div>
 
@@ -205,7 +264,7 @@
                                         <label for="birthdayFather" class="col-md-4 control-label">Birthday</label>
 
                                         <div class="col-md-6">
-                                            <input id="birthdayFather" type="text" class="form-control" name="birthdayFather" value="{{ old('birthdayFather') }}">
+                                            <input id="birthdayFather" type="text" class="form-control" name="birthdayFather" value="{{ $student['birthday_father'] }}">
 
                                         </div>
                                     </div>
@@ -214,7 +273,7 @@
                                         <label for="occupationFather" class="col-md-4 control-label">Occupation</label>
 
                                         <div class="col-md-6">
-                                            <input id="occupationFather" type="text" class="form-control" name="occupationFather" value="{{ old('occupationFather') }}">
+                                            <input id="occupationFather" type="text" class="form-control" name="occupationFather" value="{{ $student['occupation_father'] }}">
                                         </div>
                                     </div>
 
@@ -222,7 +281,7 @@
                                         <label for="homeAddressFather" class="col-md-4 control-label">Home Address</label>
 
                                         <div class="col-md-6">
-                                            <input id="homeAddressFather" type="text" class="form-control" name="homeAddressFather" value="{{ old('homeAddressFather') }}">
+                                            <input id="homeAddressFather" type="text" class="form-control" name="homeAddressFather" value="{{ $student['home_address_father'] }}">
                                         </div>
                                     </div>
 
@@ -230,7 +289,7 @@
                                         <label for="contactNumberFather" class="col-md-4 control-label">Contact Number</label>
 
                                         <div class="col-md-6">
-                                            <input id="contactNumberFather" type="text" class="form-control" name="contactNumberFather" value="{{ old('contactNumberFather') }}">
+                                            <input id="contactNumberFather" type="text" class="form-control" name="contactNumberFather" value="{{ $student['contact_number_father'] }}">
                                         </div>
                                     </div>
 
@@ -239,10 +298,26 @@
                                 <div class="panel-heading">Mother</div>
                                 <div class="panel-body">
                                     <div class="form-group">
-                                        <label for="nameMother" class="col-md-4 control-label">Name</label>
+                                        <label for="firstNameMother" class="col-md-4 control-label">First Name</label>
 
                                         <div class="col-md-6">
-                                            <input id="nameMother" type="text" class="form-control" name="nameMother" value="{{ old('nameMother') }}">
+                                            <input id="firstNameMother" type="text" class="form-control" name="firstNameMother" value="{{ $student['first_name_mother'] }}">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="middleNameMother" class="col-md-4 control-label">Middle Name</label>
+
+                                        <div class="col-md-6">
+                                            <input id="middleNameMother" type="text" class="form-control" name="middleNameMother" value="{{ $student['middle_name_mother'] }}">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="lastNameMother" class="col-md-4 control-label">Last Name</label>
+
+                                        <div class="col-md-6">
+                                            <input id="lastNameMother" type="text" class="form-control" name="lastNameMother" value="{{ $student['last_name_mother'] }}">
                                         </div>
                                     </div>
 
@@ -250,7 +325,7 @@
                                         <label for="birthdayMother" class="col-md-4 control-label">Birthday</label>
 
                                         <div class="col-md-6">
-                                            <input id="birthdayMother" type="text" class="form-control" name="birthdayMother" value="{{ old('birthdayMother') }}">
+                                            <input id="birthdayMother" type="text" class="form-control" name="birthdayMother" value="{{ $student['birthday_mother'] }}">
 
                                         </div>
                                     </div>
@@ -259,7 +334,7 @@
                                         <label for="occupationMother" class="col-md-4 control-label">Occupation</label>
 
                                         <div class="col-md-6">
-                                            <input id="occupationMother" type="text" class="form-control" name="occupationMother" value="{{ old('occupationMother') }}">
+                                            <input id="occupationMother" type="text" class="form-control" name="occupationMother" value="{{ $student['occupation_mother'] }}">
                                         </div>
                                     </div>
 
@@ -267,7 +342,7 @@
                                         <label for="homeAddressMother" class="col-md-4 control-label">Home Address</label>
 
                                         <div class="col-md-6">
-                                            <input id="homeAddressMother" type="text" class="form-control" name="homeAddressMother" value="{{ old('homeAddressMother') }}">
+                                            <input id="homeAddressMother" type="text" class="form-control" name="homeAddressMother" value="{{ $student['home_address_mother'] }}">
                                         </div>
                                     </div>
 
@@ -275,7 +350,7 @@
                                         <label for="contactNumberMother" class="col-md-4 control-label">Contact Number</label>
 
                                         <div class="col-md-6">
-                                            <input id="contactNumberMother" maxlength="11" type="text" class="form-control" name="contactNumberMother" value="{{ old('contactNumberMother') }}">
+                                            <input id="contactNumberMother" maxlength="11" type="text" class="form-control" name="contactNumberMother" value="{{ $student['contact_number_mother'] }}">
                                         </div>
                                     </div>
 
@@ -284,10 +359,26 @@
                                 <div class="panel-heading">Guardian</div>
                                 <div class="panel-body">
                                     <div class="form-group">
-                                        <label for="nameGuardian" class="col-md-4 control-label">Name</label>
+                                        <label for="firstNameGuardian" class="col-md-4 control-label">First Name</label>
 
                                         <div class="col-md-6">
-                                            <input id="nameGuardian" type="text" class="form-control" name="nameGuardian" value="{{ old('nameGuardian') }}">
+                                            <input id="firstNameGuardian" type="text" class="form-control" name="firstNameGuardian" value="{{ $student['first_name_guardian'] }}">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="middleNameGuardian" class="col-md-4 control-label">Middle Name</label>
+
+                                        <div class="col-md-6">
+                                            <input id="middleNameGuardian" type="text" class="form-control" name="middleNameGuardian" value="{{ $student['middle_name_guardian'] }}">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="lastNameGuardian" class="col-md-4 control-label">Last Name</label>
+
+                                        <div class="col-md-6">
+                                            <input id="lastNameGuardian" type="text" class="form-control" name="lastNameGuardian" value="{{ $student['last_name_guardian'] }}">
                                         </div>
                                     </div>
 
@@ -295,7 +386,7 @@
                                         <label for="birthdayGuardian" class="col-md-4 control-label">Birthday</label>
 
                                         <div class="col-md-6">
-                                            <input id="birthdayGuardian" type="text" class="form-control" name="birthdayGuardian" value="{{ old('birthdayGuardian') }}">
+                                            <input id="birthdayGuardian" type="text" class="form-control" name="birthdayGuardian" value="{{ $student['birthday_guardian'] }}">
                                         </div>
                                     </div>
 
@@ -303,7 +394,7 @@
                                         <label for="occupationGuardian" class="col-md-4 control-label">Occupation</label>
 
                                         <div class="col-md-6">
-                                            <input id="occupationGuardian" type="text" class="form-control" name="occupationGuardian" value="{{ old('occupationGuardian') }}">
+                                            <input id="occupationGuardian" type="text" class="form-control" name="occupationGuardian" value="{{ $student['occupation_guardian'] }}">
                                         </div>
                                     </div>
 
@@ -311,7 +402,7 @@
                                         <label for="homeAddressGuardian" class="col-md-4 control-label">Home Address</label>
 
                                         <div class="col-md-6">
-                                            <input id="homeAddressGuardian" type="text" class="form-control" name="homeAddressGuardian" value="{{ old('homeAddressGuardian') }}">
+                                            <input id="homeAddressGuardian" type="text" class="form-control" name="homeAddressGuardian" value="{{ $student['home_address_guardian'] }}">
 
                                         </div>
                                     </div>
@@ -320,7 +411,7 @@
                                         <label for="contactNumberGuardian" class="col-md-4 control-label">Contact Number</label>
 
                                         <div class="col-md-6">
-                                            <input id="contactNumberGuardian" type="text" class="form-control" name="contactNumberGuardian" value="{{ old('contactNumberGuardian') }}">
+                                            <input id="contactNumberGuardian" type="text" class="form-control" name="contactNumberGuardian" value="{{ $student['contact_number_guardian'] }}">
                                         </div>
                                     </div>
 
@@ -329,10 +420,26 @@
                                 <div class="panel-heading">Siblings</div>
                                 <div class="panel-body">
                                     <div class="form-group">
-                                        <label for="nameSlibling" class="col-md-4 control-label">Name</label>
+                                        <label for="firstNameSlibling" class="col-md-4 control-label">First Name</label>
 
                                         <div class="col-md-6">
-                                            <input id="nameSlibling" type="text" class="form-control" name="nameSlibling" value="{{ old('nameSlibling') }}">
+                                            <input id="firstNameSlibling" type="text" class="form-control" name="firstNameSlibling" value="{{ $student['first_name_sibling'] }}">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="middleNameSlibling" class="col-md-4 control-label">Middle Name</label>
+
+                                        <div class="col-md-6">
+                                            <input id="middleNameSlibling" type="text" class="form-control" name="middleNameSlibling" value="{{ $student['middle_name_sibling'] }}">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="lastNameSlibling" class="col-md-4 control-label">Last Name</label>
+
+                                        <div class="col-md-6">
+                                            <input id="lastNameSlibling" type="text" class="form-control" name="lastNameSlibling" value="{{ $student['last_name_sibling'] }}">
                                         </div>
                                     </div>
 
@@ -340,7 +447,7 @@
                                         <label for="ageSibling" class="col-md-4 control-label">Age</label>
 
                                         <div class="col-md-6">
-                                            <input id="ageSibling" type="text" class="form-control" name="ageSibling" value="{{ old('ageSibling') }}">
+                                            <input id="ageSibling" type="text" class="form-control" name="ageSibling" value="{{ $student['age_sibling'] }}">
                                         </div>
                                     </div>
 
@@ -356,7 +463,7 @@
                                         <label for="schoolAttendedKinder" class="col-md-4 control-label">School Attended</label>
 
                                         <div class="col-md-6">
-                                            <input id="schoolAttendedKinder" type="text" class="form-control" name="schoolAttendedKinder" value="{{ old('schoolAttendedKinder') }}">
+                                            <input id="schoolAttendedKinder" type="text" class="form-control" name="schoolAttendedKinder" value="{{ $student['school_attended_kinder'] }}">
                                         </div>
                                     </div>
 
@@ -364,7 +471,7 @@
                                         <label for="yearCompletedKinder" class="col-md-4 control-label">Year Completed</label>
 
                                         <div class="col-md-6">
-                                            <input id="yearCompletedKinder" type="text" class="form-control" name="yearCompletedKinder" value="{{ old('yearCompletedKinder') }}">
+                                            <input id="yearCompletedKinder" type="text" class="form-control" name="yearCompletedKinder" value="{{ $student['year_completed_kinder'] }}">
                                         </div>
                                     </div>
 
@@ -372,7 +479,7 @@
                                         <label for="academicStandingKinder" class="col-md-4 control-label">Academic Standing</label>
 
                                         <div class="col-md-6">
-                                            <input id="academicStandingKinder" type="text" class="form-control" name="academicStandingKinder" value="{{ old('academicStandingKinder') }}">
+                                            <input id="academicStandingKinder" type="text" class="form-control" name="academicStandingKinder" value="{{ $student['academic_standing_kinder'] }}">
                                         </div>
                                     </div>
 
@@ -385,7 +492,7 @@
                                         <label for="schoolAttendedGrade1" class="col-md-4 control-label">School Attended</label>
 
                                         <div class="col-md-6">
-                                            <input id="schoolAttendedGrade1" type="text" class="form-control" name="schoolAttendedGrade1" value="{{ old('schoolAttendedGrade1') }}">
+                                            <input id="schoolAttendedGrade1" type="text" class="form-control" name="schoolAttendedGrade1" value="{{ $student['school_attended_grade1'] }}">
                                         </div>
                                     </div>
 
@@ -393,7 +500,7 @@
                                         <label for="yearCompletedGrade1" class="col-md-4 control-label">Year Completed</label>
 
                                         <div class="col-md-6">
-                                            <input id="yearCompletedGrade1" type="text" class="form-control" name="yearCompletedGrade1" value="{{ old('yearCompletedGrade1') }}">
+                                            <input id="yearCompletedGrade1" type="text" class="form-control" name="yearCompletedGrade1" value="{{ $student['year_completed_grade1'] }}">
                                         </div>
                                     </div>
 
@@ -401,7 +508,7 @@
                                         <label for="academicStandingGrade1" class="col-md-4 control-label">Academic Standing</label>
 
                                         <div class="col-md-6">
-                                            <input id="academicStandingGrade1" type="text" class="form-control" name="academicStandingGrade1" value="{{ old('academicStandingGrade1') }}">
+                                            <input id="academicStandingGrade1" type="text" class="form-control" name="academicStandingGrade1" value="{{ $student['academic_standing_grade1'] }}">
                                         </div>
                                     </div>
 
@@ -414,7 +521,7 @@
                                         <label for="schoolAttendedGrade2" class="col-md-4 control-label">School Attended</label>
 
                                         <div class="col-md-6">
-                                            <input id="schoolAttendedGrade2" type="text" class="form-control" name="schoolAttendedGrade2" value="{{ old('schoolAttendedGrade2') }}">
+                                            <input id="schoolAttendedGrade2" type="text" class="form-control" name="schoolAttendedGrade2" value="{{ $student['school_attended_grade2'] }}">
                                         </div>
                                     </div>
 
@@ -422,7 +529,7 @@
                                         <label for="yearCompletedGrade2" class="col-md-4 control-label">Year Completed</label>
 
                                         <div class="col-md-6">
-                                            <input id="yearCompletedGrade2" type="text" class="form-control" name="yearCompletedGrade2" value="{{ old('yearCompletedGrade2') }}">
+                                            <input id="yearCompletedGrade2" type="text" class="form-control" name="yearCompletedGrade2" value="{{ $student['year_completed_grade2'] }}">
                                         </div>
                                     </div>
 
@@ -430,7 +537,7 @@
                                         <label for="academicStandingGrade2" class="col-md-4 control-label">Academic Standing</label>
 
                                         <div class="col-md-6">
-                                            <input id="academicStandingGrade2" type="text" class="form-control" name="academicStandingGrade2" value="{{ old('academicStandingGrade2') }}">
+                                            <input id="academicStandingGrade2" type="text" class="form-control" name="academicStandingGrade2" value="{{ $student['academic_standing_grade2'] }}">
                                         </div>
                                     </div>
 
@@ -443,7 +550,7 @@
                                         <label for="schoolAttendedGrade3" class="col-md-4 control-label">School Attended</label>
 
                                         <div class="col-md-6">
-                                            <input id="schoolAttendedGrade3" type="text" class="form-control" name="schoolAttendedGrade3" value="{{ old('schoolAttendedGrade3') }}">
+                                            <input id="schoolAttendedGrade3" type="text" class="form-control" name="schoolAttendedGrade3" value="{{ $student['school_attended_grade3'] }}">
                                         </div>
                                     </div>
 
@@ -451,7 +558,7 @@
                                         <label for="yearCompletedGrade3" class="col-md-4 control-label">Year Completed</label>
 
                                         <div class="col-md-6">
-                                            <input id="yearCompletedGrade3" type="text" class="form-control" name="yearCompletedGrade3" value="{{ old('yearCompletedGrade3') }}">
+                                            <input id="yearCompletedGrade3" type="text" class="form-control" name="yearCompletedGrade3" value="{{ $student['year_completed_grade3'] }}">
                                         </div>
                                     </div>
 
@@ -459,7 +566,7 @@
                                         <label for="academicStandingGrade3" class="col-md-4 control-label">Academic Standing</label>
 
                                         <div class="col-md-6">
-                                            <input id="academicStandingGrade3" type="text" class="form-control" name="academicStandingGrade3" value="{{ old('academicStandingGrade3') }}">
+                                            <input id="academicStandingGrade3" type="text" class="form-control" name="academicStandingGrade3" value="{{ $student['academic_standing_grade3'] }}">
                                         </div>
                                     </div>
 
@@ -472,7 +579,7 @@
                                         <label for="schoolAttendedGrade4" class="col-md-4 control-label">School Attended</label>
 
                                         <div class="col-md-6">
-                                            <input id="schoolAttendedGrade4" type="text" class="form-control" name="schoolAttendedGrade4" value="{{ old('schoolAttendedGrade4') }}">
+                                            <input id="schoolAttendedGrade4" type="text" class="form-control" name="schoolAttendedGrade4" value="{{ $student['school_attended_grade4'] }}">
                                         </div>
                                     </div>
 
@@ -480,7 +587,7 @@
                                         <label for="yearCompletedGrade4" class="col-md-4 control-label">Year Completed</label>
 
                                         <div class="col-md-6">
-                                            <input id="yearCompletedGrade4" type="text" class="form-control" name="yearCompletedGrade4" value="{{ old('yearCompletedGrade4') }}">
+                                            <input id="yearCompletedGrade4" type="text" class="form-control" name="yearCompletedGrade4" value="{{ $student['year_completed_grade4'] }}">
                                         </div>
                                     </div>
 
@@ -488,7 +595,7 @@
                                         <label for="academicStandingGrade4" class="col-md-4 control-label">Academic Standing</label>
 
                                         <div class="col-md-6">
-                                            <input id="academicStandingGrade4" type="text" class="form-control" name="academicStandingGrade4" value="{{ old('academicStandingGrade4') }}" >
+                                            <input id="academicStandingGrade4" type="text" class="form-control" name="academicStandingGrade4" value="{{ $student['academic_standing_grade4'] }}" >
                                         </div>
                                     </div>
 
@@ -501,7 +608,7 @@
                                         <label for="schoolAttendedGrade5" class="col-md-4 control-label">School Attended</label>
 
                                         <div class="col-md-6">
-                                            <input id="schoolAttendedGrade5" type="text" class="form-control" name="schoolAttendedGrade5" value="{{ old('schoolAttendedGrade5') }}">
+                                            <input id="schoolAttendedGrade5" type="text" class="form-control" name="schoolAttendedGrade5" value="{{ $student['school_attended_grade5'] }}">
                                         </div>
                                     </div>
 
@@ -509,7 +616,7 @@
                                         <label for="yearCompletedGrade5" class="col-md-4 control-label">Year Completed</label>
 
                                         <div class="col-md-6">
-                                            <input id="yearCompletedGrade5" type="text" class="form-control" name="yearCompletedGrade5" value="{{ old('yearCompletedGrade5') }}">
+                                            <input id="yearCompletedGrade5" type="text" class="form-control" name="yearCompletedGrade5" value="{{ $student['year_completed_grade5'] }}">
                                         </div>
                                     </div>
 
@@ -517,7 +624,7 @@
                                         <label for="academicStandingGrade5" class="col-md-4 control-label">Academic Standing</label>
 
                                         <div class="col-md-6">
-                                            <input id="academicStandingGrade5" type="text" class="form-control" name="academicStandingGrade5" value="{{ old('academicStandingGrade5') }}">
+                                            <input id="academicStandingGrade5" type="text" class="form-control" name="academicStandingGrade5" value="{{ $student['academic_standing_grade5'] }}">
                                         </div>
                                     </div>
 
@@ -530,7 +637,7 @@
                                         <label for="schoolAttendedGrade6" class="col-md-4 control-label">School Attended</label>
 
                                         <div class="col-md-6">
-                                            <input id="schoolAttendedGrade6" type="text" class="form-control" name="schoolAttendedGrade6" value="{{ old('schoolAttendedGrade6') }}">
+                                            <input id="schoolAttendedGrade6" type="text" class="form-control" name="schoolAttendedGrade6" value="{{ $student['school_attended_grade6'] }}">
                                         </div>
                                     </div>
 
@@ -538,7 +645,7 @@
                                         <label for="yearCompletedGrade6" class="col-md-4 control-label">Year Completed</label>
 
                                         <div class="col-md-6">
-                                            <input id="yearCompletedGrade6" type="text" class="form-control" name="yearCompletedGrade6" value="{{ old('yearCompletedGrade6') }}">
+                                            <input id="yearCompletedGrade6" type="text" class="form-control" name="yearCompletedGrade6" value="{{ $student['year_completed_grade6'] }}">
                                         </div>
                                     </div>
 
@@ -546,7 +653,7 @@
                                         <label for="academicStandingGrade6" class="col-md-4 control-label">Academic Standing</label>
 
                                         <div class="col-md-6">
-                                            <input id="academicStandingGrade6" type="text" class="form-control" name="academicStandingGrade6" value="{{ old('academicStandingGrade6') }}">
+                                            <input id="academicStandingGrade6" type="text" class="form-control" name="academicStandingGrade6" value="{{ $student['academic_standing_grade6'] }}">
                                         </div>
                                     </div>
 
@@ -559,7 +666,7 @@
                                         <label for="schoolAttendedGrade7" class="col-md-4 control-label">School Attended</label>
 
                                         <div class="col-md-6">
-                                            <input id="schoolAttendedGrade7" type="text" class="form-control" name="schoolAttendedGrade7" value="{{ old('schoolAttendedGrade7') }}">
+                                            <input id="schoolAttendedGrade7" type="text" class="form-control" name="schoolAttendedGrade7" value="{{ $student['school_attended_grade7'] }}">
                                         </div>
                                     </div>
 
@@ -567,7 +674,7 @@
                                         <label for="yearCompletedGrade7" class="col-md-4 control-label">Year Completed</label>
 
                                         <div class="col-md-6">
-                                            <input id="yearCompletedGrade7" type="text" class="form-control" name="yearCompletedGrade7" value="{{ old('yearCompletedGrade7') }}">
+                                            <input id="yearCompletedGrade7" type="text" class="form-control" name="yearCompletedGrade7" value="{{ $student['year_completed_grade7'] }}">
                                         </div>
                                     </div>
 
@@ -575,7 +682,7 @@
                                         <label for="academicStandingGrade7" class="col-md-4 control-label">Academic Standing</label>
 
                                         <div class="col-md-6">
-                                            <input id="academicStandingGrade7" type="text" class="form-control" name="academicStandingGrade7" value="{{ old('academicStandingGrade7') }}">
+                                            <input id="academicStandingGrade7" type="text" class="form-control" name="academicStandingGrade7" value="{{ $student['academic_standing_grade7'] }}">
                                         </div>
                                     </div>
 
@@ -588,7 +695,7 @@
                                         <label for="schoolAttendedGrade8" class="col-md-4 control-label">School Attended</label>
 
                                         <div class="col-md-6">
-                                            <input id="schoolAttendedGrade8" type="text" class="form-control" name="schoolAttendedGrade8" value="{{ old('schoolAttendedGrade8') }}">
+                                            <input id="schoolAttendedGrade8" type="text" class="form-control" name="schoolAttendedGrade8" value="{{ $student['school_attended_grade8'] }}">
                                         </div>
                                     </div>
 
@@ -596,7 +703,7 @@
                                         <label for="yearCompletedGrade8" class="col-md-4 control-label">Year Completed</label>
 
                                         <div class="col-md-6">
-                                            <input id="yearCompletedGrade8" type="text" class="form-control" name="yearCompletedGrade8" value="{{ old('yearCompletedGrade8') }}">
+                                            <input id="yearCompletedGrade8" type="text" class="form-control" name="yearCompletedGrade8" value="{{ $student['year_completed_grade8'] }}">
                                         </div>
                                     </div>
 
@@ -604,7 +711,7 @@
                                         <label for="academicStandingGrade8" class="col-md-4 control-label">Academic Standing</label>
 
                                         <div class="col-md-6">
-                                            <input id="academicStandingGrade8" type="text" class="form-control" name="academicStandingGrade8" value="{{ old('academicStandingGrade8') }}">
+                                            <input id="academicStandingGrade8" type="text" class="form-control" name="academicStandingGrade8" value="{{ $student['academic_standing_grade8'] }}">
                                         </div>
                                     </div>
 
@@ -617,7 +724,7 @@
                                         <label for="schoolAttendedGrade9" class="col-md-4 control-label">School Attended</label>
 
                                         <div class="col-md-6">
-                                            <input id="schoolAttendedGrade9" type="text" class="form-control" name="schoolAttendedGrade9" value="{{ old('schoolAttendedGrade9') }}">
+                                            <input id="schoolAttendedGrade9" type="text" class="form-control" name="schoolAttendedGrade9" value="{{ $student['school_attended_grade9'] }}">
                                         </div>
                                     </div>
 
@@ -625,7 +732,7 @@
                                         <label for="yearCompletedGrade9" class="col-md-4 control-label">Year Completed</label>
 
                                         <div class="col-md-6">
-                                            <input id="yearCompletedGrade9" type="text" class="form-control" name="yearCompletedGrade9" value="{{ old('yearCompletedGrade9') }}">
+                                            <input id="yearCompletedGrade9" type="text" class="form-control" name="yearCompletedGrade9" value="{{ $student['year_completed_grade9'] }}">
                                         </div>
                                     </div>
 
@@ -633,7 +740,7 @@
                                         <label for="academicStandingGrade9" class="col-md-4 control-label">Academic Standing</label>
 
                                         <div class="col-md-6">
-                                            <input id="academicStandingGrade9" type="text" class="form-control" name="academicStandingGrade9" value="{{ old('academicStandingGrade9') }}">
+                                            <input id="academicStandingGrade9" type="text" class="form-control" name="academicStandingGrade9" value="{{ $student['academic_standing_grade9'] }}">
                                         </div>
                                     </div>
 
@@ -646,7 +753,7 @@
                                         <label for="schoolAttendedGrade10" class="col-md-4 control-label">School Attended</label>
 
                                         <div class="col-md-6">
-                                            <input id="schoolAttendedGrade10" type="text" class="form-control" name="schoolAttendedGrade10" value="{{ old('schoolAttendedGrade10') }}">
+                                            <input id="schoolAttendedGrade10" type="text" class="form-control" name="schoolAttendedGrade10" value="{{ $student['school_attended_grade10'] }}">
                                         </div>
                                     </div>
 
@@ -654,7 +761,7 @@
                                         <label for="yearCompletedGrade10" class="col-md-4 control-label">Year Completed</label>
 
                                         <div class="col-md-6">
-                                            <input id="yearCompletedGrade10" type="text" class="form-control" name="yearCompletedGrade10" value="{{ old('yearCompletedGrade10') }}">
+                                            <input id="yearCompletedGrade10" type="text" class="form-control" name="yearCompletedGrade10" value="{{ $student['year_completed_grade10'] }}">
                                         </div>
                                     </div>
 
@@ -662,7 +769,7 @@
                                         <label for="academicStanding10" class="col-md-4 control-label">Academic Standing</label>
 
                                         <div class="col-md-6">
-                                            <input id="academicStanding10" type="text" class="form-control" name="academicStanding10" value="{{ old('academicStanding10') }}">
+                                            <input id="academicStanding10" type="text" class="form-control" name="academicStanding10" value="{{ $student['academic_standing_grade10'] }}">
                                         </div>
                                     </div>
 
@@ -675,7 +782,7 @@
                                         <label for="schoolAttendedGrade11" class="col-md-4 control-label">School Attended</label>
 
                                         <div class="col-md-6">
-                                            <input id="schoolAttendedGrade11" type="text" class="form-control" name="schoolAttendedGrade11" value="{{ old('schoolAttendedGrade11') }}">
+                                            <input id="schoolAttendedGrade11" type="text" class="form-control" name="schoolAttendedGrade11" value="{{ $student['school_attended_grade11'] }}">
                                         </div>
                                     </div>
 
@@ -683,7 +790,7 @@
                                         <label for="yearCompletedGrade11" class="col-md-4 control-label">Year Completed</label>
 
                                         <div class="col-md-6">
-                                            <input id="yearCompletedGrade11" type="text" class="form-control" name="yearCompletedGrade11" value="{{ old('yearCompletedGrade11') }}">
+                                            <input id="yearCompletedGrade11" type="text" class="form-control" name="yearCompletedGrade11" value="{{ $student['year_completed_grade11'] }}">
                                         </div>
                                     </div>
 
@@ -691,7 +798,7 @@
                                         <label for="academicStandingGrade11" class="col-md-4 control-label">Academic Standing</label>
 
                                         <div class="col-md-6">
-                                            <input id="academicStandingGrade11" type="text" class="form-control" name="academicStandingGrade11" value="{{ old('academicStandingGrade11') }}">
+                                            <input id="academicStandingGrade11" type="text" class="form-control" name="academicStandingGrade11" value="{{ $student['academic_standing_grade11'] }}">
                                         </div>
                                     </div>
 
@@ -704,7 +811,7 @@
                                         <label for="schoolAttendedGrade12" class="col-md-4 control-label">School Attended</label>
 
                                         <div class="col-md-6">
-                                            <input id="schoolAttendedGrade12" type="text" class="form-control" name="schoolAttendedGrade12" value="{{ old('schoolAttendedGrade12') }}">
+                                            <input id="schoolAttendedGrade12" type="text" class="form-control" name="schoolAttendedGrade12" value="{{ $student['school_attended_grade12'] }}">
                                         </div>
                                     </div>
 
@@ -712,7 +819,7 @@
                                         <label for="yearCompletedGrade12" class="col-md-4 control-label">Year Completed</label>
 
                                         <div class="col-md-6">
-                                            <input id="yearCompletedGrade12" type="text" class="form-control" name="yearCompletedGrade12" value="{{ old('yearCompletedGrade12') }}">
+                                            <input id="yearCompletedGrade12" type="text" class="form-control" name="yearCompletedGrade12" value="{{ $student['year_completed_grade12'] }}">
                                         </div>
                                     </div>
 
@@ -720,7 +827,7 @@
                                         <label for="academicStandingGrade12" class="col-md-4 control-label">Academic Standing</label>
 
                                         <div class="col-md-6">
-                                            <input id="academicStandingGrade12" type="text" class="form-control" name="academicStandingGrade12" value="{{ old('academicStandingGrade12') }}">
+                                            <input id="academicStandingGrade12" type="text" class="form-control" name="academicStandingGrade12" value="{{ $student['academic_standing_grade12'] }}">
                                         </div>
                                     </div>
 

@@ -28,7 +28,7 @@
                                         </tr>
                                         <tr>
                                             <td><h3>Name:</h3></td>
-                                            <td>{{$student['name']}}</td>
+                                            <td>{{$student['first_name'].' '.$student['middle_name'] . ' ' .$student['last_name']}}</td>
                                         </tr>
                                         <tr>
                                             <td><h3>Gender:</h3></td>

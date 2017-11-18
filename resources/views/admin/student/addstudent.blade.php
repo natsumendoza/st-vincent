@@ -43,15 +43,43 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                                    <label for="name" class="col-md-4 control-label">Name</label>
+                                <div class="form-group{{ $errors->has('firstName') ? ' has-error' : '' }}">
+                                    <label for="firstName" class="col-md-4 control-label">First Name</label>
 
                                     <div class="col-md-6">
-                                        <input id="name" placeholder="Full Name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+                                        <input id="firstName" placeholder="First Name" type="text" class="form-control" name="firstName" value="{{ old('firstName') }}" required autofocus>
 
-                                        @if ($errors->has('name'))
+                                        @if ($errors->has('firstName'))
                                             <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
+                                        <strong>{{ $errors->first('firstName') }}</strong>
+                                    </span>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                <div class="form-group{{ $errors->has('middleName') ? ' has-error' : '' }}">
+                                    <label for="middleName" class="col-md-4 control-label">Middle Name</label>
+
+                                    <div class="col-md-6">
+                                        <input id="middleName" placeholder="Middle Name" type="text" class="form-control" name="middleName" value="{{ old('middleName') }}">
+
+                                        @if ($errors->has('middleName'))
+                                            <span class="help-block">
+                                        <strong>{{ $errors->first('middleName') }}</strong>
+                                    </span>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                <div class="form-group{{ $errors->has('lastName') ? ' has-error' : '' }}">
+                                    <label for="lastName" class="col-md-4 control-label">Last Name</label>
+
+                                    <div class="col-md-6">
+                                        <input id="lastName" placeholder="Last Name" type="text" class="form-control" name="lastName" value="{{ old('lastName') }}" required autofocus>
+
+                                        @if ($errors->has('lastName'))
+                                            <span class="help-block">
+                                        <strong>{{ $errors->first('lastName') }}</strong>
                                     </span>
                                         @endif
                                     </div>
@@ -208,10 +236,26 @@
                                 <div class="panel-heading">Father</div>
                                 <div class="panel-body">
                                     <div class="form-group">
-                                        <label for="nameFather" class="col-md-4 control-label">Name</label>
+                                        <label for="firstNameFather" class="col-md-4 control-label">First Name</label>
 
                                         <div class="col-md-6">
-                                            <input id="nameFather" type="text" class="form-control" name="nameFather" value="{{ old('nameFather') }}">
+                                            <input id="firstNameFather" type="text" class="form-control" name="firstNameFather" value="{{ old('firstNameFather') }}">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="middleNameFather" class="col-md-4 control-label">Middle Name</label>
+
+                                        <div class="col-md-6">
+                                            <input id="middleNameFather" type="text" class="form-control" name="middleNameFather" value="{{ old('middleNameFather') }}">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="lastNameFather" class="col-md-4 control-label">Last Name</label>
+
+                                        <div class="col-md-6">
+                                            <input id="lastNameFather" type="text" class="form-control" name="lastNameFather" value="{{ old('lastNameFather') }}">
                                         </div>
                                     </div>
 
@@ -253,10 +297,26 @@
                                 <div class="panel-heading">Mother</div>
                                 <div class="panel-body">
                                     <div class="form-group">
-                                        <label for="nameMother" class="col-md-4 control-label">Name</label>
+                                        <label for="firstNameMother" class="col-md-4 control-label">First Name</label>
 
                                         <div class="col-md-6">
-                                            <input id="nameMother" type="text" class="form-control" name="nameMother" value="{{ old('nameMother') }}">
+                                            <input id="firstNameMother" type="text" class="form-control" name="firstNameMother" value="{{ old('firstNameMother') }}">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="middleNameMother" class="col-md-4 control-label">Middle Name</label>
+
+                                        <div class="col-md-6">
+                                            <input id="middleNameMother" type="text" class="form-control" name="middleNameMother" value="{{ old('middleNameMother') }}">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="lastNameMother" class="col-md-4 control-label">Last Name</label>
+
+                                        <div class="col-md-6">
+                                            <input id="lastNameMother" type="text" class="form-control" name="lastNameMother" value="{{ old('lastNameMother') }}">
                                         </div>
                                     </div>
 
@@ -298,10 +358,26 @@
                                 <div class="panel-heading">Guardian</div>
                                 <div class="panel-body">
                                     <div class="form-group">
-                                        <label for="nameGuardian" class="col-md-4 control-label">Name</label>
+                                        <label for="firstNameGuardian" class="col-md-4 control-label">First Name</label>
 
                                         <div class="col-md-6">
-                                            <input id="nameGuardian" type="text" class="form-control" name="nameGuardian" value="{{ old('nameGuardian') }}">
+                                            <input id="firstNameGuardian" type="text" class="form-control" name="firstNameGuardian" value="{{ old('firstNameGuardian') }}">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="middleNameGuardian" class="col-md-4 control-label">Middle Name</label>
+
+                                        <div class="col-md-6">
+                                            <input id="middleNameGuardian" type="text" class="form-control" name="middleNameGuardian" value="{{ old('middleNameGuardian') }}">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="lastNameGuardian" class="col-md-4 control-label">Last Name</label>
+
+                                        <div class="col-md-6">
+                                            <input id="lastNameGuardian" type="text" class="form-control" name="lastNameGuardian" value="{{ old('lastNameGuardian') }}">
                                         </div>
                                     </div>
 
@@ -343,10 +419,26 @@
                                 <div class="panel-heading">Siblings</div>
                                 <div class="panel-body">
                                     <div class="form-group">
-                                        <label for="nameSlibling" class="col-md-4 control-label">Name</label>
+                                        <label for="firstNameSlibling" class="col-md-4 control-label">First Name</label>
 
                                         <div class="col-md-6">
-                                            <input id="nameSlibling" type="text" class="form-control" name="nameSlibling" value="{{ old('nameSlibling') }}">
+                                            <input id="firstNameSlibling" type="text" class="form-control" name="firstNameSlibling" value="{{ old('firstNameSlibling') }}">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="middleNameSlibling" class="col-md-4 control-label">Middle Name</label>
+
+                                        <div class="col-md-6">
+                                            <input id="middleNameSlibling" type="text" class="form-control" name="middleNameSlibling" value="{{ old('middleNameSlibling') }}">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="lastNameSlibling" class="col-md-4 control-label">Last Name</label>
+
+                                        <div class="col-md-6">
+                                            <input id="lastNameSlibling" type="text" class="form-control" name="lastNameSlibling" value="{{ old('lastNameSlibling') }}">
                                         </div>
                                     </div>
 

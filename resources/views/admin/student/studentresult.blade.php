@@ -40,7 +40,7 @@
                                         @foreach($studentResults as $studentResult)
                                             <tr>
                                                 <td>{{$studentResult->lrn}}</td>
-                                                <td>{{$studentResult->name}}</td>
+                                                <td>{{$studentResult->first_name.' '.$studentResult->middle_name.' '.$studentResult->last_name}}</td>
 
                                                 <td>{{$studentResult->e_percentage}}</td>
                                                 <td>{{$studentResult->i_percentage}}</td>
