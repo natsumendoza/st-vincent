@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container" style="margin-top: 11%;">
     @if (\Session::has('error'))
         <div class="alert alert-danger text-center">
             <p>{{ \Session::get('error') }}</p>
