@@ -42,7 +42,7 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         $validated_student = $this->validate($request,[
-            'lrn' => 'required|numeric',
+            'lrn' => 'required|numeric|unique:students',
             'firstName' => 'required|string|max:255',
             'middleName' => 'string|max:255',
             'lastName' => 'required|string|max:255',
@@ -63,7 +63,7 @@ class StudentController extends Controller
         $student['middle_name'] = $validated_student['middleName'];
         $student['last_name'] = $validated_student['lastName'];
 
-        if(isset($request['image'])) {
+        if($request['image'] != NULL) {
 
             $cleanName = preg_replace('/\s+/', '_', $validated_student['lrn']);
             $imageName =   $cleanName . (Auth::user()->id * 2) . time() . '.'.$request->file('image')->getClientOriginalExtension();
@@ -237,7 +237,7 @@ class StudentController extends Controller
         $student['middle_name'] = $validated_student['middleName'];
         $student['last_name'] = $validated_student['lastName'];
 
-        if(isset($request['image'])) {
+        if($request['image'] != NULL) {
 
             $cleanName = preg_replace('/\s+/', '_', $validated_student['lrn']);
             $imageName =   $cleanName . (Auth::user()->id * 2) . time() . '.'.$request->file('image')->getClientOriginalExtension();

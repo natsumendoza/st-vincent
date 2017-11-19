@@ -190,21 +190,21 @@
 
                                     <div class="col-md-6">
                                         <select id="grade" type="text" class="form-control" name="grade" value="{{ old('grade') }}" required autofocus>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10">10</option>
-                                            <option value="11">11</option>
-                                            <option value="12">12</option>
-                                            <option value="transferee">Transferee</option>
-                                            <option value="drop-out">Drop out</option>
-											<option value="graduate">Graduate</option>
+                                            <option value="Grade 1">Grade 1</option>
+                                            <option value="Grade 2">Grade 2</option>
+                                            <option value="Grade 3">Grade 3</option>
+                                            <option value="Grade 4">Grade 4</option>
+                                            <option value="Grade 5">Grade 5</option>
+                                            <option value="Grade 6">Grade 6</option>
+                                            <option value="Grade 7">Grade 7</option>
+                                            <option value="Grade 8">Grade 8</option>
+                                            <option value="Grade 9">Grade 9</option>
+                                            <option value="Grade 10">Grade 10</option>
+                                            <option value="Grade 11">Grade 11</option>
+                                            <option value="Grade 12">Grade 12</option>
+                                            <option value="Transferee">Transferee</option>
+                                            <option value="Drop out">Drop out</option>
+											<option value="Graduate">Graduate</option>
                                         </select>
                                         @if ($errors->has('grade'))
                                             <span class="help-block">

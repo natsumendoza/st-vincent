@@ -192,21 +192,21 @@
 
                                         <div class="col-md-6">
                                             <select id="grade" type="text" class="form-control" name="grade" value="{{ $student['grade'] }}" required autofocus>
-                                                <option value="1" {{ ($student['grade'] == '1') ? "selected" : "" }}>1</option>
-                                                <option value="2" {{ ($student['grade'] == '2') ? "selected" : "" }}>2</option>
-                                                <option value="3" {{ ($student['grade'] == '3') ? "selected" : "" }}>3</option>
-                                                <option value="4" {{ ($student['grade'] == '4') ? "selected" : "" }}>4</option>
-                                                <option value="5" {{ ($student['grade'] == '5') ? "selected" : "" }}>5</option>
-                                                <option value="6" {{ ($student['grade'] == '6') ? "selected" : "" }}>6</option>
-                                                <option value="7" {{ ($student['grade'] == '7') ? "selected" : "" }}>7</option>
-                                                <option value="8" {{ ($student['grade'] == '8') ? "selected" : "" }}>8</option>
-                                                <option value="9" {{ ($student['grade'] == '9') ? "selected" : "" }}>9</option>
-                                                <option value="10" {{ ($student['grade'] == '10') ? "selected" : "" }}>10</option>
-                                                <option value="11" {{ ($student['grade'] == '11') ? "selected" : "" }}>11</option>
-                                                <option value="12" {{ ($student['grade'] == '12') ? "selected" : "" }}>12</option>
-												<option value="12" {{ ($student['grade'] == 'transferee') ? "selected" : "" }}>Transferee</option>
-												<option value="12" {{ ($student['grade'] == 'drop-out') ? "selected" : "" }}>Drop out</option>
-												<option value="12" {{ ($student['grade'] == 'graduate') ? "selected" : "" }}>Graduate</option>
+                                                <option value="Grade 1" {{ ($student['grade'] == 'Grade 1') ? "selected" : "" }}>Grade 1</option>
+                                                <option value="Grade 2" {{ ($student['grade'] == 'Grade 2') ? "selected" : "" }}>Grade 2</option>
+                                                <option value="Grade 3" {{ ($student['grade'] == 'Grade 3') ? "selected" : "" }}>Grade 3</option>
+                                                <option value="Grade 4" {{ ($student['grade'] == 'Grade 4') ? "selected" : "" }}>Grade 4</option>
+                                                <option value="Grade 5" {{ ($student['grade'] == 'Grade 5') ? "selected" : "" }}>Grade 5</option>
+                                                <option value="Grade 6" {{ ($student['grade'] == 'Grade 6') ? "selected" : "" }}>Grade 6</option>
+                                                <option value="Grade 7" {{ ($student['grade'] == 'Grade 7') ? "selected" : "" }}>Grade 7</option>
+                                                <option value="Grade 8" {{ ($student['grade'] == 'Grade 8') ? "selected" : "" }}>Grade 8</option>
+                                                <option value="Grade 9" {{ ($student['grade'] == 'Grade 9') ? "selected" : "" }}>Grade 9</option>
+                                                <option value="Grade 10" {{ ($student['grade'] == 'Grade 10') ? "selected" : "" }}>Grade 10</option>
+                                                <option value="Grade 11" {{ ($student['grade'] == 'Grade 11') ? "selected" : "" }}>Grade 11</option>
+                                                <option value="Grade 12" {{ ($student['grade'] == 'Grade 12') ? "selected" : "" }}>Grade 12</option>
+												<option value="Transferee" {{ ($student['grade'] == 'Transferee') ? "selected" : "" }}>Transferee</option>
+												<option value="Drop out" {{ ($student['grade'] == 'Drop out') ? "selected" : "" }}>Drop out</option>
+												<option value="Graduate" {{ ($student['grade'] == 'Graduate') ? "selected" : "" }}>Graduate</option>
 											</select>
                                             @if ($errors->has('grade'))
                                                 <span class="help-block">

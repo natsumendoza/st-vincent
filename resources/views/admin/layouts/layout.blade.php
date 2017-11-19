@@ -18,8 +18,15 @@
     <!-- Custom styles for this template-->
     <link type="text/css" rel="stylesheet" href="{{ env('APP_ENV') == 'local' ? asset('css/sb-admin.css') : secure_asset('css/sb-admin.css') }}" />
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
     {{--<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">--}}
 
+    <style>
+        .grade-select {
+            width: 115px;
+            display: inline-block;
+        }
+    </style>
 
 </head>
 
