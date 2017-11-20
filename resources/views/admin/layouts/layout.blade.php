@@ -156,7 +156,7 @@
 <!-- Custom scripts for this page-->
 <script type="text/javascript" src="{{ env('APP_ENV') == 'local' ? asset('js/sb-admin-datatables.min.js') : secure_asset('js/sb-admin-datatables.min.js') }}"></script>
 <script type="text/javascript" src="{{ env('APP_ENV') == 'local' ? asset('js/sb-admin-charts.min.js') : secure_asset('js/sb-admin-charts.min.js') }}"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="{{asset('js/jquery-ui.js')}}"></script>
 <script type="text/javascript" src="{{ env('APP_ENV') == 'local' ? asset('js/stvincentadmin.js') : secure_asset('js/stvincentadmin.js') }}"></script>
 </body>
 
