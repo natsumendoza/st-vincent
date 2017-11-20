@@ -42,7 +42,8 @@ class BackupController extends Controller
         try {
             Artisan::call('backup:run', ['--only-db' => true]);
             $output = Artisan::output();
-
+            echo $output;
+            die;
             $files = File::allFiles('backups');
             $filename = pathinfo($files[0])['filename'].'.zip';
             $this->download($filename);
