@@ -38,12 +38,12 @@ class BackupController extends Controller
     public function store(Request $request)
     {
 
+        $success = File::cleanDirectory(public_path('backups'));
 
         try {
             Artisan::call('backup:run', ['--only-db' => true]);
             $output = Artisan::output();
-            echo $output;
-            die;
+
             $files = File::allFiles('backups');
             $filename = pathinfo($files[0])['filename'].'.zip';
             $this->download($filename);
