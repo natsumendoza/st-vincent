@@ -101,7 +101,9 @@ class StudentAccountController extends Controller
         $user = User::find($id);
         $student = Student::all()->where('lrn' , $user['lrn'])->get('0');
 
-        $user->delete();
+        if(count($user) > 0) {
+			$user->delete();
+		}
         $student->delete();
 
         return redirect('studentaccount')->with('success', 'Student has been deleted');
