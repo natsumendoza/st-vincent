@@ -90,6 +90,7 @@ Route::resource('question', 'QuestionController');
 Route::resource('studentaccount', 'StudentAccountController');
 Route::resource('adminaccount', 'AdminAccountController');
 Route::resource('remark', 'RemarkController');
+Route::resource('backup', 'BackupController');
 
 
 

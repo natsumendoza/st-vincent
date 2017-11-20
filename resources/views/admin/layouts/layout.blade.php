@@ -87,6 +87,12 @@
                         <span class="nav-link-text">Results</span>
                     </a>
                 </li>
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Results">
+                    <a class="nav-link" href="{{url('/backup')}}">
+                        <i class="fa fa-fw fa-table"></i>
+                        <span class="nav-link-text">Database Backup</span>
+                    </a>
+                </li>
             @endif
 
             @if(Auth::user()->isSuperAdmin())
