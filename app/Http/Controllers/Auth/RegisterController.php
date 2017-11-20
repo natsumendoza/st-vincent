@@ -79,17 +79,25 @@ class RegisterController extends Controller
     public function register(Request $request)
     {
         $student = Student::all()->where('lrn', $request['lrn']);
+        $grade10 = 'Grade 10';
+        $grade12 = 'Grade 12';
+
         if (count($student) == 0) {
             return redirect('register')->with('error', 'LRN does not exist');
         } else {
-            $this->validator($request->all())->validate();
+            if(($student[0]['grade'] == $grade10) || ($student[0]['grade'] == $grade12)) {
+                $this->validator($request->all())->validate();
 
-            event(new Registered($user = $this->create($request->all())));
+                event(new Registered($user = $this->create($request->all())));
 
-            $this->guard()->login($user);
+                $this->guard()->login($user);
 
-            return $this->registered($request, $user)
-                ?: redirect($this->redirectPath());
+                return $this->registered($request, $user)
+                    ?: redirect($this->redirectPath());
+            } else {
+                return redirect('register')->with('error', 'This registration is only for grade 10 and grade 12 students');
+            }
+
         }
     }
     protected function registered(Request $request, $user)

@@ -24,8 +24,8 @@ Route::get('/exam', function () {
 
     $examLimit = ExamLimit::where('lrn', Auth::user()->lrn)->get()[0]['exam_count'];
     $student = Student::where('lrn', Auth::user()->lrn)->get();
-    $grade10 = '10';
-    $grade12 = '12';
+    $grade10 = 'Grade 10';
+    $grade12 = 'Grade 12';
 
     if(($student[0]['grade'] == $grade10) || ($student[0]['grade'] == $grade12)) {
         if($examLimit < 1) {
