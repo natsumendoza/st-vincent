@@ -62,7 +62,7 @@
                                         <label for="middleName" class="col-md-4 control-label">Middle Name</label>
 
                                         <div class="col-md-6">
-                                            <input id="middleName" type="text" class="form-control" name="middleName" value="{{ $student['middle_name'] }}" required autofocus>
+                                            <input id="middleName" type="text" class="form-control" name="middleName" value="{{ $student['middle_name'] }}" autofocus>
 
                                             @if ($errors->has('middleName'))
                                                 <span class="help-block">

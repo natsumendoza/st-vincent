@@ -344,12 +344,15 @@ class StudentController extends Controller
 
         $student->save();
 
-        if($request['grade'] == '10') {
+        $grade10 = 'Grade 10';
+        $grade12 = 'Grade 12';
+
+        if($request['grade'] == $grade10) {
             $examLimitObj= ExamLimit::where('lrn', $student['lrn'])->get()[0];
             $examLimit = ExamLimit::find($examLimitObj['id']);
             $examLimit['exam_count'] = 1;
             $examLimit->save();
-        } else if($request['grade'] == '12') {
+        } else if($request['grade'] == $grade12) {
             $examLimitObj= ExamLimit::where('lrn', $student['lrn'])->get()[0];
             $examLimit = ExamLimit::find($examLimitObj['id']);
             $examLimit['exam_count'] = 0;
