@@ -19,7 +19,7 @@ class CreateStudentsTable extends Migration
             // Personal Profile
             $table->string('lrn')->unique();
             $table->string('first_name');
-            $table->string('middle_name');
+            $table->string('middle_name')->nullable();
             $table->string('last_name');
             $table->string('image_path')->nullable();
             $table->string('birthday');

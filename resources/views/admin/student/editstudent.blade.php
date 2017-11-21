@@ -22,7 +22,7 @@
 
                     </div>
 
-                    <form class="form-horizontal" method="POST" action="{{ action('StudentController@update', base64_encode($student['id'])) }}">
+                    <form class="form-horizontal" method="POST" enctype="multipart/form-data" action="{{ action('StudentController@update', base64_encode($student['id'])) }}">
                         {{ csrf_field() }}
                         <input name="_method" type="hidden" value="PATCH">
                         <div class="tab-content" style="width: 100%;">

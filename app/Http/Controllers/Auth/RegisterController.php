@@ -79,7 +79,6 @@ class RegisterController extends Controller
     public function register(Request $request)
     {
         $student = Student::where('lrn', $request['lrn'])->get();
-        print_r($student);
         $grade10 = 'Grade 10';
         $grade12 = 'Grade 12';
 

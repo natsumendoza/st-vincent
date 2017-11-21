@@ -44,7 +44,6 @@ class StudentController extends Controller
         $validated_student = $this->validate($request,[
             'lrn' => 'required|numeric|unique:students',
             'firstName' => 'required|string|max:255',
-            'middleName' => 'string|max:255',
             'lastName' => 'required|string|max:255',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg,PNG,JPG,JPEG|max:2048',
             'birthday' => 'required|string|max:255',
@@ -60,11 +59,10 @@ class StudentController extends Controller
         $student = array();
         $student['lrn'] = $validated_student['lrn'];
         $student['first_name'] = $validated_student['firstName'];
-        $student['middle_name'] = $validated_student['middleName'];
+        $student['middle_name'] = $request['middleName'];
         $student['last_name'] = $validated_student['lastName'];
 
         if($request['image'] != NULL) {
-
             $cleanName = preg_replace('/\s+/', '_', $validated_student['lrn']);
             $imageName =   $cleanName . (Auth::user()->id * 2) . time() . '.'.$request->file('image')->getClientOriginalExtension();
             $request->file('image')->move(public_path('image/student'), $imageName);
@@ -220,7 +218,6 @@ class StudentController extends Controller
         $validated_student = $this->validate($request,[
             'lrn' => 'required|numeric',
             'firstName' => 'required|string|max:255',
-            'middleName' => 'string|max:255',
             'lastName' => 'required|string|max:255',
             'birthday' => 'required|string|max:255',
             'age' => 'required|numeric',
@@ -234,7 +231,7 @@ class StudentController extends Controller
 
         $student['lrn'] = $validated_student['lrn'];
         $student['first_name'] = $validated_student['firstName'];
-        $student['middle_name'] = $validated_student['middleName'];
+        $student['middle_name'] = $request['middleName'];
         $student['last_name'] = $validated_student['lastName'];
 
         if($request['image'] != NULL) {

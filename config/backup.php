@@ -81,23 +81,23 @@ return [
      * If a backup does not meet the specified requirements the
      * UnHealthyBackupWasFound event will be fired.
      */
-    'monitorBackups' => [
-        [
-            'name' => env('APP_NAME'),
-            'disks' => ['local'],
-            'newestBackupsShouldNotBeOlderThanDays' => 1,
-            'storageUsedMayNotBeHigherThanMegabytes' => 5000,
-        ],
-
-        /*
-        [
-            'name' => 'name of the second app',
-            'disks' => ['local', 's3'],
-            'newestBackupsShouldNotBeOlderThanDays' => 1,
-            'storageUsedMayNotBeHigherThanMegabytes' => 5000,
-        ],
-        */
-    ],
+//    'monitorBackups' => [
+//        [
+//            'name' => env('APP_NAME'),
+//            'disks' => ['local'],
+//            'newestBackupsShouldNotBeOlderThanDays' => 1,
+//            'storageUsedMayNotBeHigherThanMegabytes' => 5000,
+//        ],
+//
+//        /*
+//        [
+//            'name' => 'name of the second app',
+//            'disks' => ['local', 's3'],
+//            'newestBackupsShouldNotBeOlderThanDays' => 1,
+//            'storageUsedMayNotBeHigherThanMegabytes' => 5000,
+//        ],
+//        */
+//    ],
 
     'cleanup' => [
         /*
