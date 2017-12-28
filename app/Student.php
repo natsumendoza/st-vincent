@@ -11,6 +11,7 @@ class Student extends Model
         'first_name',
         'middle_name',
         'last_name',
+        'name_ext',
         'image_path',
         'birthday',
         'age',

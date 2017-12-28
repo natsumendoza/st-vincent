@@ -62,8 +62,8 @@
                                         <label for="middleName" class="col-md-4 control-label">Middle Name</label>
 
                                         <div class="col-md-6">
-                                            <input id="middleName" type="text" class="form-control" name="middleName" value="{{ $student['middle_name'] }}" autofocus>
-
+                                            <input id="middleName" type="text" class="form-control" name="middleName" value="{{ $student['middle_name'] }}" autofocus required>
+                                            <input id="noMiddle" type="checkbox"><label for="noMiddle">no middle name</label>
                                             @if ($errors->has('middleName'))
                                                 <span class="help-block">
                                         <strong>{{ $errors->first('middleName') }}</strong>
@@ -81,6 +81,20 @@
                                             @if ($errors->has('lastName'))
                                                 <span class="help-block">
                                         <strong>{{ $errors->first('lastName') }}</strong>
+                                    </span>
+                                            @endif
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group{{ $errors->has('extName') ? ' has-error' : '' }}">
+                                        <label for="extName" class="col-md-4 control-label">Extension Name</label>
+
+                                        <div class="col-md-6">
+                                            <input id="extName" placeholder="Extension Name" type="text" class="form-control" name="extName" value="{{ $student['name_ext'] }}" required autofocus>
+
+                                            @if ($errors->has('extName'))
+                                                <span class="help-block">
+                                        <strong>{{ $errors->first('extName') }}</strong>
                                     </span>
                                             @endif
                                         </div>
@@ -119,7 +133,7 @@
                                         <label for="age" class="col-md-4 control-label">Age</label>
 
                                         <div class="col-md-6">
-                                            <input id="age" type="text" class="form-control" name="age" value="{{ $student['age'] }}" required autofocus>
+                                            <input id="age" type="number" min="5" class="form-control" name="age" value="{{ $student['age'] }}" required autofocus disabled>
 
                                             @if ($errors->has('age'))
                                                 <span class="help-block">
@@ -149,7 +163,7 @@
                                         <label for="placeOfBirth" class="col-md-4 control-label">Place of birth</label>
 
                                         <div class="col-md-6">
-                                            <input id="placeOfBirth" type="text" class="form-control" name="placeOfBirth" value="{{ $student['place_of_birth'] }}" required autofocus>
+                                            <input id="placeOfBirth" placeholder="Municipality, Province" type="text" class="form-control" name="placeOfBirth" value="{{ $student['place_of_birth'] }}" required autofocus>
 
                                             @if ($errors->has('placeOfBirth'))
                                                 <span class="help-block">
@@ -174,10 +188,10 @@
                                     </div>
 
                                     <div class="form-group{{ $errors->has('contactNumber') ? ' has-error' : '' }}">
-                                        <label for="contactNumber" class="col-md-4 control-label">Contact Number</label>
+                                        <label for="contactNumber" class="col-md-4 control-label">Cellphone Number</label>
 
                                         <div class="col-md-6">
-                                            <input id="contactNumber" type="text" class="form-control" name="contactNumber" value="{{ $student['contact_number'] }}" required autofocus>
+                                            <input id="contactNumber" minlength="11" maxlength="11" type="text" class="form-control" name="contactNumber" value="{{ $student['contact_number'] }}" required autofocus>
 
                                             @if ($errors->has('contactNumber'))
                                                 <span class="help-block">
@@ -286,7 +300,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="contactNumberFather" class="col-md-4 control-label">Contact Number</label>
+                                        <label for="contactNumberFather" class="col-md-4 control-label">Cellphone Number</label>
 
                                         <div class="col-md-6">
                                             <input id="contactNumberFather" type="text" class="form-control" name="contactNumberFather" value="{{ $student['contact_number_father'] }}">
@@ -347,7 +361,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="contactNumberMother" class="col-md-4 control-label">Contact Number</label>
+                                        <label for="contactNumberMother" class="col-md-4 control-label">Cellphone Number</label>
 
                                         <div class="col-md-6">
                                             <input id="contactNumberMother" maxlength="11" type="text" class="form-control" name="contactNumberMother" value="{{ $student['contact_number_mother'] }}">
@@ -408,7 +422,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="contactNumberGuardian" class="col-md-4 control-label">Contact Number</label>
+                                        <label for="contactNumberGuardian" class="col-md-4 control-label">Cellphone Number</label>
 
                                         <div class="col-md-6">
                                             <input id="contactNumberGuardian" type="text" class="form-control" name="contactNumberGuardian" value="{{ $student['contact_number_guardian'] }}">
@@ -835,13 +849,15 @@
                                 </div>
 
 
-                                <div class="panel-body">
-                                    <div class="form-group">
-                                        <div class="col-md-6 col-md-offset-4">
-                                            <button type="submit" class="btn btn-primary">
-                                                Save
-                                            </button>
-                                        </div>
+
+                            </div>
+
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    <div class="col-md-6 col-md-offset-4">
+                                        <button type="submit" id="save-btn" class="btn btn-primary">
+                                            Save
+                                        </button>
                                     </div>
                                 </div>
                             </div>

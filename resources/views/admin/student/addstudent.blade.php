@@ -33,7 +33,7 @@
                                     <label for="lrn" class="col-md-4 control-label">LRN</label>
 
                                     <div class="col-md-6">
-                                        <input id="lrn" placeholder="12 digit number" maxlength="12" type="text" class="form-control" name="lrn" value="{{ old('lrn') }}" required autofocus>
+                                        <input id="lrn" placeholder="12 digit number" minlength="12" maxlength="12" type="text" class="form-control" name="lrn" value="{{ old('lrn') }}" required autofocus>
 
                                         @if ($errors->has('lrn'))
                                             <span class="help-block">
@@ -61,8 +61,8 @@
                                     <label for="middleName" class="col-md-4 control-label">Middle Name</label>
 
                                     <div class="col-md-6">
-                                        <input id="middleName" placeholder="Middle Name" type="text" class="form-control" name="middleName" value="{{ old('middleName') }}">
-
+                                        <input id="middleName" minlength="2" placeholder="Middle Name" type="text" class="form-control" name="middleName" value="{{ old('middleName') }}" required>
+                                        <input id="noMiddle" type="checkbox"><label for="noMiddle">no middle name</label>
                                         @if ($errors->has('middleName'))
                                             <span class="help-block">
                                         <strong>{{ $errors->first('middleName') }}</strong>
@@ -75,11 +75,25 @@
                                     <label for="lastName" class="col-md-4 control-label">Last Name</label>
 
                                     <div class="col-md-6">
-                                        <input id="lastName" placeholder="Last Name" type="text" class="form-control" name="lastName" value="{{ old('lastName') }}" required autofocus>
+                                        <input id="lastName" placeholder="Last Name" minlength="2" type="text" class="form-control" name="lastName" value="{{ old('lastName') }}" required autofocus>
 
                                         @if ($errors->has('lastName'))
                                             <span class="help-block">
                                         <strong>{{ $errors->first('lastName') }}</strong>
+                                    </span>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                <div class="form-group{{ $errors->has('extName') ? ' has-error' : '' }}">
+                                    <label for="extName" class="col-md-4 control-label">Extension Name</label>
+
+                                    <div class="col-md-6">
+                                        <input id="extName" placeholder="Extension Name" type="text" class="form-control" name="extName" value="{{ old('extName') }}" required autofocus>
+
+                                        @if ($errors->has('extName'))
+                                            <span class="help-block">
+                                        <strong>{{ $errors->first('extName') }}</strong>
                                     </span>
                                         @endif
                                     </div>
@@ -117,7 +131,7 @@
                                     <label for="age" class="col-md-4 control-label">Age</label>
 
                                     <div class="col-md-6">
-                                        <input id="age" type="text" placeholder="Your age" class="form-control" name="age" value="{{ old('age') }}" required autofocus>
+                                        <input id="age" type="number" min="5" placeholder="Your age" class="form-control" name="age" value="{{ old('age') }}" required autofocus >
 
                                         @if ($errors->has('age'))
                                             <span class="help-block">
@@ -147,7 +161,7 @@
                                     <label for="placeOfBirth" class="col-md-4 control-label">Place of birth</label>
 
                                     <div class="col-md-6">
-                                        <input id="placeOfBirth" placeholder="Street number, Baranggay, City/Town, Province" type="text" class="form-control" name="placeOfBirth" value="{{ old('placeOfBirth') }}" required autofocus>
+                                        <input id="placeOfBirth" placeholder="Municipality, Province" type="text" class="form-control" name="placeOfBirth" value="{{ old('placeOfBirth') }}" required autofocus>
 
                                         @if ($errors->has('placeOfBirth'))
                                             <span class="help-block">
@@ -172,10 +186,10 @@
                                 </div>
 
                                 <div class="form-group{{ $errors->has('contactNumber') ? ' has-error' : '' }}">
-                                    <label for="contactNumber" class="col-md-4 control-label">Contact Number</label>
+                                    <label for="contactNumber" class="col-md-4 control-label">Cellphone Number</label>
 
                                     <div class="col-md-6">
-                                        <input id="contactNumber" maxlength="11" placeholder="11 digit number" type="text" class="form-control" name="contactNumber" value="{{ old('contactNumber') }}" required autofocus>
+                                        <input id="contactNumber" maxlength="11" minlength="11" placeholder="11 digit number" type="text" class="form-control" name="contactNumber" value="{{ old('contactNumber') }}" required autofocus>
 
                                         @if ($errors->has('contactNumber'))
                                             <span class="help-block">
@@ -285,7 +299,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="contactNumberFather" class="col-md-4 control-label">Contact Number</label>
+                                        <label for="contactNumberFather" class="col-md-4 control-label">Cellphone Number</label>
 
                                         <div class="col-md-6">
                                             <input id="contactNumberFather" type="text" class="form-control" name="contactNumberFather" value="{{ old('contactNumberFather') }}">
@@ -346,7 +360,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="contactNumberMother" class="col-md-4 control-label">Contact Number</label>
+                                        <label for="contactNumberMother" class="col-md-4 control-label">Cellphone Number</label>
 
                                         <div class="col-md-6">
                                             <input id="contactNumberMother" type="text" class="form-control" name="contactNumberMother" value="{{ old('contactNumberMother') }}">
@@ -407,7 +421,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="contactNumberGuardian" class="col-md-4 control-label">Contact Number</label>
+                                        <label for="contactNumberGuardian" class="col-md-4 control-label">Cellphone Number</label>
 
                                         <div class="col-md-6">
                                             <input id="contactNumberGuardian" type="text" class="form-control" name="contactNumberGuardian" value="{{ old('contactNumberGuardian') }}">
@@ -832,18 +846,18 @@
 
 
                                 </div>
-                                <div class="panel-body">
-                                    <div class="form-group">
-                                        <div class="col-md-6 col-md-offset-4">
-                                            <button type="submit" class="btn btn-primary">
-                                                Save
-                                            </button>
-                                        </div>
-                                    </div>
 
-                                </div>
                             </div>
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    <div class="col-md-6 col-md-offset-4">
+                                        <button type="submit" id="save-btn" class="btn btn-primary">
+                                            Save
+                                        </button>
+                                    </div>
+                                </div>
 
+                            </div>
 
                         </div>
 

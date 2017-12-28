@@ -45,9 +45,10 @@ class StudentController extends Controller
             'lrn' => 'required|numeric|unique:students',
             'firstName' => 'required|string|max:255',
             'lastName' => 'required|string|max:255',
+            'extName' => 'required|string|max:255',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg,PNG,JPG,JPEG|max:2048',
             'birthday' => 'required|string|max:255',
-            'age' => 'required|numeric',
+            'age' => 'numeric',
             'gender' => 'required|string|max:255',
             'placeOfBirth' => 'required|string|max:255',
             'homeAddress' => 'required|string|max:255',
@@ -61,6 +62,7 @@ class StudentController extends Controller
         $student['first_name'] = $validated_student['firstName'];
         $student['middle_name'] = $request['middleName'];
         $student['last_name'] = $validated_student['lastName'];
+        $student['name_ext'] = $validated_student['extName'];
 
         if($request['image'] != NULL) {
             $cleanName = preg_replace('/\s+/', '_', $validated_student['lrn']);
@@ -219,8 +221,9 @@ class StudentController extends Controller
             'lrn' => 'required|numeric',
             'firstName' => 'required|string|max:255',
             'lastName' => 'required|string|max:255',
+            'extName' => 'required|string|max:255',
             'birthday' => 'required|string|max:255',
-            'age' => 'required|numeric',
+            'age' => 'numeric',
             'gender' => 'required|string|max:255',
             'placeOfBirth' => 'required|string|max:255',
             'homeAddress' => 'required|string|max:255',
@@ -233,6 +236,7 @@ class StudentController extends Controller
         $student['first_name'] = $validated_student['firstName'];
         $student['middle_name'] = $request['middleName'];
         $student['last_name'] = $validated_student['lastName'];
+        $student['name_ext'] = $validated_student['extName'];
 
         if($request['image'] != NULL) {
 
