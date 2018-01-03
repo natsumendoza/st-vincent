@@ -43,7 +43,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-12 text-center my-auto text-primary">
-                                    <h1><a href="{{url('/exam')}}">BEGIN TEST</a></h1>
+                                    <h1><a style="width: 180px;opacity: 0.5;background-color: #fff; color: #000;" class="btn btn-success" href="{{url('/exam')}}">BEGIN TEST</a></h1>
                                 </div>
                             </div>
                         </div>

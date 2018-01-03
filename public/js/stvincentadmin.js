@@ -23,6 +23,16 @@ $(document).ready(function () {
         }
     });
 
+    $('#extName').keyup(function () {
+        var el = $(this);
+        var length = el.val().length;
+        if(length > 0) {
+            el.attr('minlength', '2');
+        } else {
+            el.removeAttr('minlength');
+        }
+    });
+
     $('#birthday').datepicker({
         maxDate: new Date(),
         endDate: new Date(),

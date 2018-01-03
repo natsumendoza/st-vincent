@@ -8,7 +8,7 @@
             <!-- Area Chart Example-->
             <div class="row" style="">
                 <div class="col-md-12 text-center my-auto">
-                    <h1>RESULT:</h1>
+                    <h1>RESULTS:</h1>
                 </div>
             </div>
 
@@ -34,7 +34,14 @@
                                             <input type="hidden" id="S" value="{{$S}}" />
                                             <input type="hidden" id="E" value="{{$E}}" />
                                             <input type="hidden" id="I" value="{{$I}}" />
-                                            <canvas id="myBarChart" width="150" height="50"></canvas>
+                                            <h2>ENERGY:</h2>
+                                            <canvas id="energyBarChart" width="500" height="50"></canvas>
+                                            <h2 style="margin-top: 20px;">INFORMATION:</h2>
+                                            <canvas id="informationBarChart" width="500" height="50"></canvas>
+                                            <h2 style="margin-top: 20px;">DECISION MAKING:</h2>
+                                            <canvas id="decisionMakingBarChart" width="500" height="50"></canvas>
+                                            <h2 style="margin-top: 20px;">LEARNING STYLE:</h2>
+                                            <canvas id="learningStyleBarChart" width="500" height="50"></canvas>
                                         </div>
                                     </div>
                                 </div>
@@ -42,24 +49,31 @@
                             </div>
 
                             <div class="row">
-                                <div class="col-md-12 text-center my-auto text-primary">
-                                    <h1>{{$combinationFetched}}</h1>
+                                <div class="col-md-12 my-auto text-center text-primary">
+                                    <h1 style="color: #000040;"><span style="color: #000;">PERSONALITY TYPE: </span>{{$combinationFetched}}</h1>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div style="margin-top: 20px" class="row">
 
                                 @php
                                     $careers = explode(",", $combinationData['careers']);
                                     $count = 1;
                                 @endphp
 
-                                <div class="col-md-12 text-center my-auto text-primary">
-                                    <h3>{{$combinationData['interpretation']}}</h3>
+                                <div class="col-md-12 text-center my-auto">
+                                    <h3 style="color: #000040;"><span style="color: #000;">INTERPRETATION: </span>{{$combinationData['interpretation']}}</h3>
+
+                                    <h3 style="color: #000;margin-top: 20px">POSSIBLE CAREER:</h3>
                                     <ul style="list-style: none;">
                                         @foreach($careers as $career)
-                                            <li>{{$count++}}. {{$career}}</li>
+                                            <li style="font-size: 22px; color: #000040;">{{$count++}}. {{$career}}</li>
                                         @endforeach
                                     </ul>
+                                </div>
+                            </div>
+                            <div style="margin-top: 50px" class="row">
+                                <div class="col-md-12 my-auto text-center text-primary">
+                                    <h2 style="color: #000040;">*Please see the guidance counselor for career counseling*</h2>
                                 </div>
                             </div>
                         </div>

@@ -91,7 +91,7 @@
 
                                         <div class="col-md-6">
                                             <input id="extName" placeholder="Extension Name" type="text" class="form-control" name="extName" value="{{ $student['name_ext'] }}" required autofocus>
-
+                                            (e.g. JR, III, IV, V)
                                             @if ($errors->has('extName'))
                                                 <span class="help-block">
                                         <strong>{{ $errors->first('extName') }}</strong>

@@ -61,42 +61,131 @@ var T = $('#T').val();
 var F = $('#F').val();
 var J = $('#J').val();
 var P = $('#P').val();
-var ctx = document.getElementById("myBarChart");
-var myLineChart = new Chart(ctx, {
-  type: 'horizontalBar',
-  data: {
-    labels: ["J", "P", "F", "T", "N", "S", "E", "I"],
-    datasets: [{
-      label: "Result",
-      backgroundColor: ["rgb(117,177,199)", "rgb(255,0,0)", "rgb(255,165,0)", "rgb(255,255,0)", "rgb(101,178,52)", "rgb(0,168,207)", "rgb(85,112,85)", "rgb(0,0,255)"],
-      borderColor: "rgba(2,117,216,1)",
-      data: [J, P, F, T, N, S, E, I],
-      //   data: [J, P, F, T, N, S, E, I],
-    }],
-  },
-  options: {
-    scales: {
-      xAxes: [{
-        time: {
-          unit: 'month'
+var ctxEnergy = document.getElementById("energyBarChart");
+var ctxInformation = document.getElementById("informationBarChart");
+var ctxDecisionMaking = document.getElementById("decisionMakingBarChart");
+var ctxLearningStyle = document.getElementById("learningStyleBarChart");
+// var myLineChart = new Chart(ctx, {
+//               type: 'horizontalBar',
+//               data: {
+//                   labels: ["J", "P", "F", "T", "N", "S", "E", "I"],
+//                   datasets: [{
+//                       label: "Result",
+//                       backgroundColor: ["rgb(117,177,199)", "rgb(255,0,0)", "rgb(255,165,0)", "rgb(255,255,0)", "rgb(101,178,52)", "rgb(0,168,207)", "rgb(85,112,85)", "rgb(0,0,255)"],
+//                       borderColor: "rgba(2,117,216,1)",
+//                       data: [J, P, F, T, N, S, E, I],
+//                       //   data: [J, P, F, T, N, S, E, I],
+//                   }],
+//               },
+//               options: {
+//                   scales: {
+//                       xAxes: [{
+//                           time: {
+//                               unit: 'month'
+//                           },
+//                           gridLines: {
+//                               display: false
+//                           },
+//                           ticks: {
+//                               maxTicksLimit: 6
+//                           }
+//                       }],
+//                       yAxes: [{
+//                           ticks: {
+//                               min: 0,
+//                               max: 100,
+//                               maxTicksLimit: 5,
+//                               stepSize: 20
+//                           },
+//                           gridLines: {
+//                               display: true
+//                           }
+//       }],
+//     },
+//     legend: {
+//       display: false
+//     }
+//   }
+// });
+
+var energyChart = new Chart(ctxEnergy, {
+    type: 'horizontalBar',
+    data: {
+        labels: ["Extrovert", "Introvert"],
+        datasets: [{
+            label: "Result",
+            backgroundColor: ["rgb(85,112,85)", "rgb(0,0,255)"],
+            borderColor: "rgba(2,117,216,1)",
+            data: [E, I],
+            //   data: [J, P, F, T, N, S, E, I],
+        }],
+    },
+    options: {
+        scales: {
+            xAxes: [{
+                time: {
+                    unit: 'month'
+                },
+                gridLines: {
+                    display: false
+                },
+                ticks: {
+                    maxTicksLimit: 6
+                }
+            }],
+            yAxes: [{
+                ticks: {
+                    min: 0,
+                    max: 100,
+                    maxTicksLimit: 5,
+                    stepSize: 20
+                },
+                gridLines: {
+                    display: true
+                }
+            }],
         },
-        gridLines: {
-          display: false
-        },
-        ticks: {
-          maxTicksLimit: 6
+        legend: {
+            display: false
         }
-      }],
-      yAxes: [{
-        ticks: {
-          min: 0,
-          max: 100,
-          maxTicksLimit: 5,
-          stepSize: 20
-        },
-        gridLines: {
-          display: true
-        }
+    }
+});
+
+var informationChart = new Chart(ctxInformation, {
+              type: 'horizontalBar',
+              data: {
+                  labels: ["SENSING", "INTUITIVE"],
+                  datasets: [{
+                      label: "Result",
+                      backgroundColor: ["rgb(0,168,207)", "rgb(101,178,52)"],
+                      borderColor: "rgba(2,117,216,1)",
+                      data: [S, N],
+                      //   data: [J, P, F, T, N, S, E, I],
+                  }],
+              },
+              options: {
+                  scales: {
+                      xAxes: [{
+                          time: {
+                              unit: 'month'
+                          },
+                          gridLines: {
+                              display: false
+                          },
+                          ticks: {
+                              maxTicksLimit: 6
+                          }
+                      }],
+                      yAxes: [{
+                          ticks: {
+                              min: 0,
+                              max: 100,
+                              maxTicksLimit: 5,
+                              stepSize: 20
+                          },
+                          gridLines: {
+                              display: true
+                          }
       }],
     },
     legend: {
@@ -104,6 +193,95 @@ var myLineChart = new Chart(ctx, {
     }
   }
 });
+
+
+var decisionMakingChart = new Chart(ctxDecisionMaking, {
+              type: 'horizontalBar',
+              data: {
+                  labels: ["THINKER", "FEELER"],
+                  datasets: [{
+                      label: "Result",
+                      backgroundColor: ["rgb(255,165,0)", "rgb(255,255,0)"],
+                      borderColor: "rgba(2,117,216,1)",
+                      data: [T, F],
+                      //   data: [J, P, F, T, N, S, E, I],
+                  }],
+              },
+              options: {
+                  scales: {
+                      xAxes: [{
+                          time: {
+                              unit: 'month'
+                          },
+                          gridLines: {
+                              display: false
+                          },
+                          ticks: {
+                              maxTicksLimit: 6
+                          }
+                      }],
+                      yAxes: [{
+                          ticks: {
+                              min: 0,
+                              max: 100,
+                              maxTicksLimit: 5,
+                              stepSize: 20
+                          },
+                          gridLines: {
+                              display: true
+                          }
+      }],
+    },
+    legend: {
+      display: false
+    }
+  }
+});
+
+
+var learningStyleChart = new Chart(ctxLearningStyle, {
+              type: 'horizontalBar',
+              data: {
+                  labels: ["JUDGING", "PERCEIVING"],
+                  datasets: [{
+                      label: "Result",
+                      backgroundColor: ["rgb(117,177,199)", "rgb(255,0,0)"],
+                      borderColor: "rgba(2,117,216,1)",
+                      data: [J, P],
+                      //   data: [J, P, F, T, N, S, E, I],
+                  }],
+              },
+              options: {
+                  scales: {
+                      xAxes: [{
+                          time: {
+                              unit: 'month'
+                          },
+                          gridLines: {
+                              display: false
+                          },
+                          ticks: {
+                              maxTicksLimit: 6
+                          }
+                      }],
+                      yAxes: [{
+                          ticks: {
+                              min: 0,
+                              max: 100,
+                              maxTicksLimit: 5,
+                              stepSize: 20
+                          },
+                          gridLines: {
+                              display: true
+                          }
+      }],
+    },
+    legend: {
+      display: false
+    }
+  }
+});
+
 // // -- Pie Chart Example
 // var ctx = document.getElementById("myPieChart");
 // var myPieChart = new Chart(ctx, {
