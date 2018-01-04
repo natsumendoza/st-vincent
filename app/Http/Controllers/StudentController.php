@@ -248,7 +248,7 @@ class StudentController extends Controller
         }
 
         $student['birthday'] = $validated_student['birthday'];
-        $student['age'] = $validated_student['age'];
+        $student['age'] = $request['ageVal'];
         $student['gender'] = $validated_student['gender'];
         $student['place_of_birth'] = $validated_student['placeOfBirth'];
         $student['home_address'] = $validated_student['homeAddress'];

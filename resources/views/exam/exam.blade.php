@@ -63,7 +63,7 @@
                                                                                     {{$countE}}.
                                                                                     <div class="form-check form-check-inline" >
                                                                                         <label class="form-check-label">
-                                                                                            <input type="radio" class="form-check-input" name="energy{{$countE}}" id="optionsRadios1" value="{{$letterCode1}}" required autofocus>
+                                                                                            <input type="radio" class="form-check-input energyCheck" name="energy{{$countE}}" id="optionsRadios1" value="{{$letterCode1}}" required autofocus>
                                                                                             {{$question1}}
                                                                                         </label>
                                                                                     </div>
@@ -71,7 +71,7 @@
                                                                                 <td align="left" width="300px">
                                                                                     <div class="form-check form-check-inline">
                                                                                         <label class="form-check-label">
-                                                                                            <input type="radio" class="form-check-input" name="energy{{$countE}}" id="optionsRadios2" value="{{$letterCode2}}" required autofocus>
+                                                                                            <input type="radio" class="form-check-input energyCheck" name="energy{{$countE}}" id="optionsRadios2" value="{{$letterCode2}}" required autofocus>
                                                                                             {{$question2}}
                                                                                         </label>
                                                                                     </div>
@@ -87,6 +87,7 @@
 
                                                         </div>
                                                         <div class="col-md-12 my-auto text-center">
+                                                            <input type="hidden" id="countE" value="{{$countE}}">
                                                             <a class="btn btn-primary btnNext" >Next</a>
                                                         </div>
                                                     </div>
@@ -316,4 +317,14 @@
                             </div>
                         </div>
     </div>
+
+    <script type="text/javascript" src="{{ env('APP_ENV') == 'local' ? asset('vendor/jquery/jquery.min.js') : secure_asset('vendor/jquery/jquery.min.js') }}"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            alert($('#countE').val() - 1);
+
+        });
+    </script>
 @endsection

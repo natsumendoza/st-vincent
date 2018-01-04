@@ -76,6 +76,8 @@
 <script type="text/javascript" src="{{ env('APP_ENV') == 'local' ? asset('js/sb-admin-charts.js') : secure_asset('js/sb-admin-charts.js') }}"></script>
 <script type="text/javascript" src="{{ env('APP_ENV') == 'local' ? asset('js/stvincent.js') : secure_asset('js/stvincent.js') }}"></script>
 
+
+
 </body>
 
 </html>

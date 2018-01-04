@@ -25,6 +25,7 @@
                     <form class="form-horizontal" method="POST" enctype="multipart/form-data" action="{{ action('StudentController@update', base64_encode($student['id'])) }}">
                         {{ csrf_field() }}
                         <input name="_method" type="hidden" value="PATCH">
+                        <input name="ageVal" type="hidden" value="{{$student['age']}}">
                         <div class="tab-content" style="width: 100%;">
                             <div class="tab-pane active" id="tab1">
                                 <div class="panel-heading">I. Personal Profile</div>
@@ -34,7 +35,7 @@
                                         <label for="lrn" class="col-md-4 control-label">LRN</label>
 
                                         <div class="col-md-6">
-                                            <input id="lrn" type="text" class="form-control" name="lrn" value="{{ $student['lrn'] }}" required autofocus>
+                                            <input id="lrn" type="text" class="form-control" name="lrn" minlength="12" maxlength="12" value="{{ $student['lrn'] }}" required autofocus>
 
                                             @if ($errors->has('lrn'))
                                                 <span class="help-block">
@@ -90,7 +91,7 @@
                                         <label for="extName" class="col-md-4 control-label">Extension Name</label>
 
                                         <div class="col-md-6">
-                                            <input id="extName" placeholder="Extension Name" type="text" class="form-control" name="extName" value="{{ $student['name_ext'] }}" required autofocus>
+                                            <input id="extName" placeholder="Extension Name" type="text" class="form-control" name="extName" value="{{ $student['name_ext'] }}" autofocus>
                                             (e.g. JR, III, IV, V)
                                             @if ($errors->has('extName'))
                                                 <span class="help-block">
@@ -191,7 +192,7 @@
                                         <label for="contactNumber" class="col-md-4 control-label">Cellphone Number</label>
 
                                         <div class="col-md-6">
-                                            <input id="contactNumber" minlength="11" maxlength="11" type="text" class="form-control" name="contactNumber" value="{{ $student['contact_number'] }}" required autofocus>
+                                            <input id="contactNumber" minlength="11" maxlength="11" type="number" class="form-control" name="contactNumber" value="{{ $student['contact_number'] }}" required autofocus>
 
                                             @if ($errors->has('contactNumber'))
                                                 <span class="help-block">
@@ -303,7 +304,7 @@
                                         <label for="contactNumberFather" class="col-md-4 control-label">Cellphone Number</label>
 
                                         <div class="col-md-6">
-                                            <input id="contactNumberFather" type="text" class="form-control" name="contactNumberFather" value="{{ $student['contact_number_father'] }}">
+                                            <input id="contactNumberFather" type="number" class="form-control" name="contactNumberFather" value="{{ $student['contact_number_father'] }}">
                                         </div>
                                     </div>
 
@@ -364,7 +365,7 @@
                                         <label for="contactNumberMother" class="col-md-4 control-label">Cellphone Number</label>
 
                                         <div class="col-md-6">
-                                            <input id="contactNumberMother" maxlength="11" type="text" class="form-control" name="contactNumberMother" value="{{ $student['contact_number_mother'] }}">
+                                            <input id="contactNumberMother" maxlength="11" type="number" class="form-control" name="contactNumberMother" value="{{ $student['contact_number_mother'] }}">
                                         </div>
                                     </div>
 
@@ -425,7 +426,7 @@
                                         <label for="contactNumberGuardian" class="col-md-4 control-label">Cellphone Number</label>
 
                                         <div class="col-md-6">
-                                            <input id="contactNumberGuardian" type="text" class="form-control" name="contactNumberGuardian" value="{{ $student['contact_number_guardian'] }}">
+                                            <input id="contactNumberGuardian" type="number" class="form-control" name="contactNumberGuardian" value="{{ $student['contact_number_guardian'] }}">
                                         </div>
                                     </div>
 

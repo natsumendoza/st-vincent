@@ -130,7 +130,10 @@ var energyChart = new Chart(ctxEnergy, {
                     display: false
                 },
                 ticks: {
-                    maxTicksLimit: 6
+                    maxTicksLimit: 6,
+                    callback: function (value) {
+                        return value + "%";
+                    }
                 }
             }],
             yAxes: [{
@@ -173,7 +176,10 @@ var informationChart = new Chart(ctxInformation, {
                               display: false
                           },
                           ticks: {
-                              maxTicksLimit: 6
+                              maxTicksLimit: 6,
+                              callback: function (value) {
+                                  return value + "%";
+                              }
                           }
                       }],
                       yAxes: [{
@@ -217,7 +223,10 @@ var decisionMakingChart = new Chart(ctxDecisionMaking, {
                               display: false
                           },
                           ticks: {
-                              maxTicksLimit: 6
+                              maxTicksLimit: 6,
+                              callback: function (value) {
+                                  return value + "%";
+                              }
                           }
                       }],
                       yAxes: [{
@@ -261,7 +270,10 @@ var learningStyleChart = new Chart(ctxLearningStyle, {
                               display: false
                           },
                           ticks: {
-                              maxTicksLimit: 6
+                              maxTicksLimit: 6,
+                              callback: function (value) {
+                                  return value + "%";
+                              }
                           }
                       }],
                       yAxes: [{
