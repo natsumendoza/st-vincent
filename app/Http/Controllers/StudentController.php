@@ -45,14 +45,14 @@ class StudentController extends Controller
             'lrn' => 'required|numeric|unique:students',
             'firstName' => 'required|string|max:255',
             'lastName' => 'required|string|max:255',
-            'extName' => 'required|string|max:255',
+            'extName' => 'max:255',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg,PNG,JPG,JPEG|max:2048',
             'birthday' => 'required|string|max:255',
             'age' => 'numeric',
             'gender' => 'required|string|max:255',
             'placeOfBirth' => 'required|string|max:255',
             'homeAddress' => 'required|string|max:255',
-            'contactNumber' => 'required|string|max:255',
+            'contactNumber' => 'required|numeric',
             'grade' => 'required|string|max:255',
             'section' => 'required|string|max:255'
         ]);
@@ -73,7 +73,7 @@ class StudentController extends Controller
         }
 
         $student['birthday'] = $validated_student['birthday'];
-        $student['age'] = $validated_student['age'];
+        $student['age'] = $request['ageVal'];
         $student['gender'] = $validated_student['gender'];
         $student['place_of_birth'] = $validated_student['placeOfBirth'];
         $student['home_address'] = $validated_student['homeAddress'];
@@ -221,13 +221,13 @@ class StudentController extends Controller
             'lrn' => 'required|numeric',
             'firstName' => 'required|string|max:255',
             'lastName' => 'required|string|max:255',
-            'extName' => 'required|string|max:255',
+            'extName' => 'max:255',
             'birthday' => 'required|string|max:255',
             'age' => 'numeric',
             'gender' => 'required|string|max:255',
             'placeOfBirth' => 'required|string|max:255',
             'homeAddress' => 'required|string|max:255',
-            'contactNumber' => 'required|string|max:255',
+            'contactNumber' => 'required|numeric',
             'grade' => 'required|string|max:255',
             'section' => 'required|string|max:255'
         ]);

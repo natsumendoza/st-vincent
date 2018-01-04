@@ -45,6 +45,8 @@ $(document).ready(function () {
             var age = Math.floor((new Date() - new Date(date)) / 1000 / 60 / 60 / 24 / 365.25)
 
             $('#age').val(age);
+            $('#ageVal').val(age);
+
         }
     });
     $('#birthdayFather').datepicker();

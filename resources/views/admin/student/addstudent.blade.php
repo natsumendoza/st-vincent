@@ -24,7 +24,7 @@
 
                     <form class="form-horizontal" method="POST" enctype="multipart/form-data" action="{{ url('student') }}">
                         {{ csrf_field() }}
-
+                        <input type="hidden" id="ageVal" name="ageVal" value="">
                     <div class="panel-body">
                         <div class="tab-content" style="width: 100%;">
                             <div class="tab-pane active" id="tab1">
@@ -189,7 +189,7 @@
                                     <label for="contactNumber" class="col-md-4 control-label">Cellphone Number</label>
 
                                     <div class="col-md-6">
-                                        <input id="contactNumber" maxlength="11" minlength="11" placeholder="11 digit number" type="number" class="form-control" name="contactNumber" value="{{ old('contactNumber') }}" required autofocus>
+                                        <input id="contactNumber" maxlength="11" minlength="11" placeholder="11 digit number" type="text" class="form-control" name="contactNumber" value="{{ old('contactNumber') }}" required autofocus>
 
                                         @if ($errors->has('contactNumber'))
                                             <span class="help-block">
@@ -302,7 +302,7 @@
                                         <label for="contactNumberFather" class="col-md-4 control-label">Cellphone Number</label>
 
                                         <div class="col-md-6">
-                                            <input id="contactNumberFather" type="number" class="form-control" name="contactNumberFather" value="{{ old('contactNumberFather') }}">
+                                            <input id="contactNumberFather" type="text" class="form-control" name="contactNumberFather" value="{{ old('contactNumberFather') }}">
                                         </div>
                                     </div>
 
@@ -363,7 +363,7 @@
                                         <label for="contactNumberMother" class="col-md-4 control-label">Cellphone Number</label>
 
                                         <div class="col-md-6">
-                                            <input id="contactNumberMother" type="number" class="form-control" name="contactNumberMother" value="{{ old('contactNumberMother') }}">
+                                            <input id="contactNumberMother" type="text" class="form-control" name="contactNumberMother" value="{{ old('contactNumberMother') }}">
                                         </div>
                                     </div>
 
@@ -424,7 +424,7 @@
                                         <label for="contactNumberGuardian" class="col-md-4 control-label">Cellphone Number</label>
 
                                         <div class="col-md-6">
-                                            <input id="contactNumberGuardian" type="number" class="form-control" name="contactNumberGuardian" value="{{ old('contactNumberGuardian') }}">
+                                            <input id="contactNumberGuardian" type="text" class="form-control" name="contactNumberGuardian" value="{{ old('contactNumberGuardian') }}">
                                         </div>
                                     </div>
 

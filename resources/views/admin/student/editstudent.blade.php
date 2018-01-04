@@ -63,7 +63,7 @@
                                         <label for="middleName" class="col-md-4 control-label">Middle Name</label>
 
                                         <div class="col-md-6">
-                                            <input id="middleName" type="text" class="form-control" name="middleName" value="{{ $student['middle_name'] }}" autofocus required>
+                                            <input id="middleName" minlength="2" type="text" class="form-control" name="middleName" value="{{ $student['middle_name'] }}" autofocus required>
                                             <input id="noMiddle" type="checkbox"><label for="noMiddle">no middle name</label>
                                             @if ($errors->has('middleName'))
                                                 <span class="help-block">
@@ -192,7 +192,7 @@
                                         <label for="contactNumber" class="col-md-4 control-label">Cellphone Number</label>
 
                                         <div class="col-md-6">
-                                            <input id="contactNumber" minlength="11" maxlength="11" type="number" class="form-control" name="contactNumber" value="{{ $student['contact_number'] }}" required autofocus>
+                                            <input id="contactNumber" minlength="11" maxlength="11"  type="text" class="form-control" name="contactNumber" value="{{ $student['contact_number'] }}" required autofocus>
 
                                             @if ($errors->has('contactNumber'))
                                                 <span class="help-block">
@@ -304,7 +304,7 @@
                                         <label for="contactNumberFather" class="col-md-4 control-label">Cellphone Number</label>
 
                                         <div class="col-md-6">
-                                            <input id="contactNumberFather" type="number" class="form-control" name="contactNumberFather" value="{{ $student['contact_number_father'] }}">
+                                            <input id="contactNumberFather" type="text" class="form-control" name="contactNumberFather" value="{{ $student['contact_number_father'] }}">
                                         </div>
                                     </div>
 
@@ -426,7 +426,7 @@
                                         <label for="contactNumberGuardian" class="col-md-4 control-label">Cellphone Number</label>
 
                                         <div class="col-md-6">
-                                            <input id="contactNumberGuardian" type="number" class="form-control" name="contactNumberGuardian" value="{{ $student['contact_number_guardian'] }}">
+                                            <input id="contactNumberGuardian" type="text" class="form-control" name="contactNumberGuardian" value="{{ $student['contact_number_guardian'] }}">
                                         </div>
                                     </div>
 

@@ -40,7 +40,7 @@
                                                         </div>
 
                                                         <div class="col-md-12 my-auto text-center">
-                                                            <form method="POST" action="{{url('result')}}">
+                                                            <form method="POST" id="examForm" action="{{url('result')}}">
                                                                 {{ csrf_field() }}
                                                                 <table class="table" style="width: 75%; margin: 0 auto;">
                                                                     <fieldset class="form-group">
@@ -87,7 +87,6 @@
 
                                                         </div>
                                                         <div class="col-md-12 my-auto text-center">
-                                                            <input type="hidden" id="countE" value="{{$countE}}">
                                                             <a class="btn btn-primary btnNext" >Next</a>
                                                         </div>
                                                     </div>
@@ -120,7 +119,7 @@
                                                                                     {{$countI}}.
                                                                                     <div class="form-check form-check-inline" >
                                                                                         <label class="form-check-label">
-                                                                                            <input type="radio" class="form-check-input" name="information{{$countI}}" id="optionsRadios1" value="{{$letterCode1}}" required autofocus>
+                                                                                            <input type="radio" class="form-check-input informationCheck" name="information{{$countI}}" id="optionsRadios1" value="{{$letterCode1}}" required autofocus>
                                                                                             {{$question1}}
                                                                                         </label>
                                                                                     </div>
@@ -128,7 +127,7 @@
                                                                                 <td align="left" width="300px">
                                                                                     <div class="form-check form-check-inline">
                                                                                         <label class="form-check-label">
-                                                                                            <input type="radio" class="form-check-input" name="information{{$countI}}" id="optionsRadios2" value="{{$letterCode2}}" required autofocus>
+                                                                                            <input type="radio" class="form-check-input informationCheck" name="information{{$countI}}" id="optionsRadios2" value="{{$letterCode2}}" required autofocus>
                                                                                             {{$question2}}
                                                                                         </label>
                                                                                     </div>
@@ -180,7 +179,7 @@
                                                                                     {{$countD}}.
                                                                                     <div class="form-check form-check-inline" >
                                                                                         <label class="form-check-label">
-                                                                                            <input type="radio" class="form-check-input" name="decisionmaking{{$countD}}" id="optionsRadios1" value="{{$letterCode1}}" required autofocus>
+                                                                                            <input type="radio" class="form-check-input decisionMakingCheck" name="decisionmaking{{$countD}}" id="optionsRadios1" value="{{$letterCode1}}" required autofocus>
                                                                                             {{$question1}}
                                                                                         </label>
                                                                                     </div>
@@ -188,7 +187,7 @@
                                                                                 <td align="left" width="300px">
                                                                                     <div class="form-check form-check-inline">
                                                                                         <label class="form-check-label">
-                                                                                            <input type="radio" class="form-check-input" name="decisionmaking{{$countD}}" id="optionsRadios2" value="{{$letterCode2}}" required autofocus>
+                                                                                            <input type="radio" class="form-check-input decisionMakingCheck" name="decisionmaking{{$countD}}" id="optionsRadios2" value="{{$letterCode2}}" required autofocus>
                                                                                             {{$question2}}
                                                                                         </label>
                                                                                     </div>
@@ -238,7 +237,7 @@
                                                                                     {{$countL}}.
                                                                                     <div class="form-check form-check-inline" >
                                                                                         <label class="form-check-label">
-                                                                                            <input type="radio" class="form-check-input" name="learningstyle{{$countL}}" id="optionsRadios1" value="{{$letterCode1}}" required autofocus>
+                                                                                            <input type="radio" class="form-check-input learningStyleCheck" name="learningstyle{{$countL}}" id="optionsRadios1" value="{{$letterCode1}}" required autofocus>
                                                                                             {{$question1}}
                                                                                         </label>
                                                                                     </div>
@@ -246,7 +245,7 @@
                                                                                 <td align="left" width="300px">
                                                                                     <div class="form-check form-check-inline">
                                                                                         <label class="form-check-label">
-                                                                                            <input type="radio" class="form-check-input" name="learningstyle{{$countL}}" id="optionsRadios2" value="{{$letterCode2}}" required autofocus>
+                                                                                            <input type="radio" class="form-check-input learningStyleCheck" name="learningstyle{{$countL}}" id="optionsRadios2" value="{{$letterCode2}}" required autofocus>
                                                                                             {{$question2}}
                                                                                         </label>
                                                                                     </div>
@@ -264,7 +263,7 @@
                                                                 </table>
                                                             <div class="col-md-12 my-auto text-center">
                                                                 <a class="btn btn-primary btnPrevious" >Previous</a>
-                                                                <button type="submit" class="btn btn-success">
+                                                                <button type="submit" id="generate" class="btn btn-success">
                                                                     Generate Result
                                                                 </button>
                                                             </div>
@@ -316,15 +315,23 @@
 
                             </div>
                         </div>
+
+        <div class="modal fade" id="warningModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Warning</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">You need to answer all the items before proceeding to the next page.</div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
-
-    <script type="text/javascript" src="{{ env('APP_ENV') == 'local' ? asset('vendor/jquery/jquery.min.js') : secure_asset('vendor/jquery/jquery.min.js') }}"></script>
-
-    <script>
-        $(document).ready(function () {
-
-            alert($('#countE').val() - 1);
-
-        });
-    </script>
 @endsection
