@@ -104,7 +104,7 @@ class StudentAccountController extends Controller
         if(count($user) > 0) {
 			$user->delete();
 		}
-        $student->delete();
+//        $student->delete();
 
         return redirect('studentaccount')->with('success', 'Student has been deleted');
     }
