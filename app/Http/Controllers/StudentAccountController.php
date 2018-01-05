@@ -101,6 +101,12 @@ class StudentAccountController extends Controller
         $user = User::find($id);
         $student = Student::all()->where('lrn' , $user['lrn'])->get('0');
 
+        echo '<pre>';
+        echo $user;
+        echo $user['lrn'];
+        echo $id;
+        die;
+
         if(count($user) > 0) {
 			$user->delete();
 		}
