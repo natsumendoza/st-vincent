@@ -98,18 +98,18 @@ class StudentAccountController extends Controller
     public function destroy($id)
     {
         $id = base64_decode($id);
-        $user = User::find($id);
-        $student = Student::all()->where('lrn' , $user['lrn'])->get('0');
+        $user = User::findOrFail($id);
+//        $student = Student::all()->where('lrn' , $user['lrn'])->get('0');
 
-        echo '<pre>';
-        echo $user;
-        echo $user['lrn'];
-        echo $id;
-        die;
-
-        if(count($user) > 0) {
-			$user->delete();
-		}
+//        echo '<pre>';
+//        echo $user;
+//        echo $user['lrn'];
+//        echo $id;
+//        die;
+        $user->delete();
+//        if(count($user) > 0) {
+//
+//		}
 //        $student->delete();
 
         return redirect('studentaccount')->with('success', 'Student has been deleted');
