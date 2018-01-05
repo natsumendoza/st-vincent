@@ -23,6 +23,18 @@ $(document).ready(function () {
         }
     });
 
+
+    $('#age').keypress(function (e) {
+        e.preventDefault();
+    });
+
+    // $('#age').hover(function () {
+    //
+    //     $(this).attr('disabled', 'disabled')
+    //
+    // });
+
+
     $('#extName').keyup(function () {
         var el = $(this);
         var length = el.val().length;

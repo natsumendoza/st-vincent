@@ -134,7 +134,7 @@
                                         <label for="age" class="col-md-4 control-label">Age</label>
 
                                         <div class="col-md-6">
-                                            <input id="age" type="number" min="5" class="form-control" name="age" value="{{ $student['age'] }}" required autofocus disabled>
+                                            <input style="background-color: #eee; cursor: not-allowed;" id="age" type="number" min="5" class="form-control" name="age" value="{{ $student['age'] }}" required autofocus>
 
                                             @if ($errors->has('age'))
                                                 <span class="help-block">
