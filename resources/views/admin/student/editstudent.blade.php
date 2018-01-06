@@ -49,7 +49,7 @@
                                         <label for="firstName" class="col-md-4 control-label">First Name</label>
 
                                         <div class="col-md-6">
-                                            <input id="firstName" type="text" class="form-control" name="firstName" value="{{ $student['first_name'] }}" required autofocus>
+                                            <input id="firstName" pattern="^[A-z]+$" minlength="2" title="Alphabet Characters Only" type="text" class="form-control" name="firstName" value="{{ $student['first_name'] }}" required autofocus>
 
                                             @if ($errors->has('firstName'))
                                                 <span class="help-block">
@@ -63,7 +63,7 @@
                                         <label for="middleName" class="col-md-4 control-label">Middle Name</label>
 
                                         <div class="col-md-6">
-                                            <input id="middleName" minlength="2" type="text" class="form-control" name="middleName" value="{{ $student['middle_name'] }}" autofocus required>
+                                            <input id="middleName" pattern="^[A-z]+$" title="Alphabet Characters Only" minlength="2" type="text" class="form-control" name="middleName" value="{{ $student['middle_name'] }}" autofocus required>
                                             <input id="noMiddle" type="checkbox"><label for="noMiddle">no middle name</label>
                                             @if ($errors->has('middleName'))
                                                 <span class="help-block">
@@ -77,7 +77,7 @@
                                         <label for="lastName" class="col-md-4 control-label">Last Name</label>
 
                                         <div class="col-md-6">
-                                            <input id="lastName" type="text" class="form-control" name="lastName" value="{{ $student['last_name'] }}" required autofocus>
+                                            <input id="lastName" pattern="^[A-z]+$" minlength="2" title="Alphabet Characters Only" type="text" class="form-control" name="lastName" value="{{ $student['last_name'] }}" required autofocus>
 
                                             @if ($errors->has('lastName'))
                                                 <span class="help-block">
